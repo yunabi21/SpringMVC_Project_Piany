@@ -1,0 +1,91 @@
+.login-container {
+  width: 40%;
+  height: 20%;
+  margin-top: 10%;
+  margin-left: 30%;
+  padding: 0;
+}
+
+.login-container input:focus {
+  outline: none;
+  border: 2px solid #e86159;
+}
+
+.login-title {
+  display: block;
+  margin-bottom: 40px;
+  margin-left: 48%;
+}
+
+.input-memberId-wrap {
+  margin-bottom: 10px;
+}
+
+.label-memberId,
+.label-memberPassword {
+  margin-bottom: 10px;
+}
+
+.label-memberId label,
+.label-memberPassword label {
+  margin-left: 30%;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.input-container input {
+  border-radius: 4px;
+  border: none;
+  width: 45%;
+  height: 42px;
+  background-color: #dae5e7;
+}
+
+.input-memberId input,
+.input-memberPassword input {
+  margin-left: 30%;
+}
+
+span {
+  font-size: 12px;
+  margin-top: 7px;
+}
+
+.input-result-wrap {
+  margin-left: 30%;
+  margin-bottom: 20px;
+}
+
+.find-wrap a {
+  font-size: 12px;
+}
+
+.find-wrap {
+  margin-left: 31%;
+  margin-bottom: 20px;
+}
+
+.find-wrap li {
+  position: relative;
+  display: inline-block;
+  font-size: 0.8rem;
+}
+
+.find-wrap-symbol {
+  font-size: 15px;
+  padding-left: 7px;
+  padding-right: 7px;
+}
+
+.enter-wrap button {
+  width: 45%;
+  height: 50px;
+  margin-left: 30%;
+  background-color: #313164;
+  color: #fff;
+  font-size: 18px;
+  letter-spacing: 0.2rem;
+  font-weight: 580;
+  border: none;
+  border-radius: 4px;
+}

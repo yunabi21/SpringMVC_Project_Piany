@@ -1,0 +1,91 @@
+body {
+  margin: 0;
+}
+
+.item-list-container {
+  display: flex;
+  width: 66%;
+  height: 10%;
+  margin-left: 17%;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #aaa;
+}
+
+.item-list-title {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.item-list-title h2 {
+  position: relative;
+}
+
+.item-list-see-more {
+  margin-top: 40px;
+  margin-left: auto;
+  height: 14px;
+}
+
+.item-list-see-more h4 {
+  font-size: 14px;
+}
+
+.item-list-wrap {
+  display: flex;
+  width: 60%;
+  height: 20%;
+  margin-left: 20%;
+  padding: 0;
+}
+
+.item {
+  height: 240px;
+  width: 320px;
+  margin: 20px 40px;
+}
+
+.item img {
+  width: 200px;
+  height: 240px;
+}
+
+.item-list-text-wrap {
+  display: flex;
+  width: 60%;
+  height: 12%;
+  margin-left: 20%;
+  position: relative;
+  padding: 0;
+}
+
+.item-text {
+  width: 320px;
+  height: 100px;
+  margin: 60px 0 -10px 50px;
+}
+
+.item-text2 {
+  width: 320px;
+  margin: -20px 55px -10px 50px;
+  color: #444;
+}
+
+.item-sub-text {
+  word-break: break-all;
+}
+
+.item-price {
+  letter-spacing: 0.1rem;
+  color: #222;
+}
+
+.view-more-a {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 0;
+  margin: 0;
+}
+
+.view-more-a h4:hover {
+  color: #e86159;
+}

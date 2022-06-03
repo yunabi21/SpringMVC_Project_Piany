@@ -18,12 +18,12 @@
 <header>
   <div class="header-container">
     <div class="header-logo">
-      <img class="logo" alt="" src="../../../resources/img/logo.png">
+      <a class="piany-home" href="/"><img class="logo" alt="" src="../../../resources/img/logo.png"></a>
     </div>
 
     <div class="header-menu">
-      <a class="piany-piano-shop" href="#">피아노</a>
-      <a class="piany-community-board" href="#">커뮤니티</a>
+      <a class="piany-piano-shop" href="/product/list">상품목록</a>
+      <a class="piany-community-board" href="/board/list">커뮤니티</a>
     </div>
 
     <div class="header-search">
@@ -34,10 +34,10 @@
     </div>
 
     <div class="header-side-menu">
-      <img class="user-icon" alt="" src="../../../resources/img/user.png">
-      <img class="shopping-cart-icon" alt="" src="../../../resources/img/shopping-cart.png">
-      <a href="#" class="side-menu-text">로그인</a>
-      <a href="#" class="side-menu-text">회원가입</a>
+      <a href="${pageContext.request.contextPath}/member/detail?id=${sessionScope.loginId}"><img class="user-icon" alt="" src="../../../resources/img/user.png"></a>
+      <a href="${pageContext.request.contextPath}/cart/list?id=${sessionScope.loginId}"><img class="shopping-cart-icon" alt="" src="../../../resources/img/shopping-cart.png"></a>
+      <a href="/member/login" class="side-menu-text">로그인</a>
+      <a href="${pageContext.request.contextPath}/member/save" class="side-menu-text">회원가입</a>
     </div>
   </div>
 </header>

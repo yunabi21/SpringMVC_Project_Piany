@@ -1,0 +1,109 @@
+body {
+  margin: 0;
+}
+
+.signup-container {
+  width: 40%;
+  height: 20%;
+  margin-left: 30%;
+  padding: 0;
+}
+
+.signup-container input {
+  border-radius: 4px;
+  border: none;
+  width: 100%;
+  height: 42px;
+  background-color: #dae5e7;
+}
+
+.signup-container input:focus {
+  outline: none;
+  border: 2px solid #e86159;
+}
+
+.signup-title {
+  display: block;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.signup-input {
+  margin: 40px 100px;
+}
+
+.signup-title h2 {
+  font-size: 36px;
+}
+
+.input-memberId, 
+.input-memberPassword, 
+.input-membePassword-again-wrap,
+.input-memberName-wrap, 
+.input-memberEmail-wrap,
+.input-memberMobile-wrap {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.label-memberId-wrap, 
+.label-memberPassword-wrap, 
+.label-memberPassword-again-wrap,
+.label-memberName-wrap,
+.label-memberEmail-wrap,
+.label-memberAddress-wrap,
+.label-memberMobile-wrap {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+span {
+  font-size: 12px;
+  margin-top: 7px;
+  margin-left: auto;
+}
+
+.signup-container label {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.input-address-container {
+  display: flex;
+  margin-bottom: 10px;
+}
+.input-memberZipcode-wrap {
+  width: 25%;
+  margin-right: 20px;
+}
+
+.btn-address-search-wrap {
+  width: 20%;
+}
+
+.btn-address-search-wrap input {
+  background-color: #313164;
+  color: #fff;
+  font-weight: 500;
+}
+
+.input-memberAddress1-wrap {
+  margin-bottom: 10px;
+}
+
+.input-address-wrap {
+  margin-bottom: 40px;
+}
+
+.btn-submit-form {
+  margin-bottom: 40px;
+}
+
+.btn-submit-form input {
+  background-color: #313164;
+  color: #fff;
+  font-size: 18px;
+  letter-spacing: 0.2rem;
+  font-weight: 580;
+  height: 60px;
+}
