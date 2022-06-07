@@ -23,21 +23,22 @@
     <h2>로그인</h2>
   </div>
 
+<form action="/member/login" method="post">
   <div class="input-container">
     <div class="input-memberId-wrap">
       <div class="label-memberId">
-        <label>아이디</label>
+        <label for="input-memberId">아이디</label>
       </div>
       <div class="input-memberId">
-        <input type="text" name="memberId">
+        <input type="text" name="memberId" id="input-memberId">
       </div>
     </div>
     <div class="input-memberPassword-wrap">
       <div class="label-memberPassword">
-        <label>패스워드</label>
+        <label for="input-memberPassword">패스워드</label>
       </div>
       <div class="input-memberPassword">
-        <input type="password" name="memberPassword">
+        <input type="password" name="memberPassword" id="input-memberPassword">
       </div>
     </div>
 
@@ -55,8 +56,9 @@
   </div>
 
   <div class="enter-wrap">
-    <button type="submit" id="submit-button" class="btn btn-dark">로그인</button>
+    <input type="submit" id="submit-button" class="btn" value="로그인">
   </div>
+</form>
 </div>
 </body>
 </html>
