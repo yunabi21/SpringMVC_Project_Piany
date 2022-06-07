@@ -1,0 +1,76 @@
+.detail-container {
+  margin-left: 30%;
+  width: 45%;
+  padding: 20px 40px;
+  background-color: #f4f4f4;
+  border-radius: 4px;
+}
+
+.detail-container .detail-title {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.memberId-wrap,
+.memberName-wrap,
+.memberEmail-wrap,
+.memberMobile-wrap,
+.memberAddress-wrap {
+  display: flex;
+  height: 40px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 40px;
+}
+
+.memberId-wrap .memberId-label,
+.memberName-wrap .memberName-label,
+.memberEmail-wrap .memberEmail-label,
+.memberMobile-wrap .memberMobile-label,
+.memberAddress-wrap .memberAddress-label {
+  font-size: 18px;
+  font-weight: 500;
+  width: 100px;
+  letter-spacing: 0.25rem;
+}
+
+.memberId-wrap .memberId-value,
+.memberName-wrap .memberName-value,
+.memberEmail-wrap .memberEmail-value,
+.memberMobile-wrap .memberMobile-value,
+.memberAddress-wrap .memberAddress-value {
+  margin-left: 200px;
+}
+
+.button-wrap {
+  display: flex;
+}
+
+.button-wrap .update-button {
+  margin-left: auto;
+}
+
+.button-wrap input {
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  background-color: #ddd;
+  width: 100px;
+  height: 40px;
+}
+
+.button-wrap input:hover {
+  border: 1px solid #e86159;
+}
+
+.button-wrap .delete-button {
+  margin-left: 40px;
+}
+
+.memberEmail-value input,
+.memberMobile-value input {
+  height: 36px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background-color: #fff;
+  outline: none;
+}

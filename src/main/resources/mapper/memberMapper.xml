@@ -20,5 +20,13 @@
     <select id="findMemberPw" parameterType="member" resultType="member">
         SELECT * FROM member_table WHERE memberId = #{memberId} AND memberEmail = #{memberEmail}
     </select>
+
+    <select id="findById" parameterType="Long" resultType="member">
+        SELECT * FROM member_table WHERE id = #{id}
+    </select>
+
+    <select id="passwordConfirm" parameterType="member" resultType="int">
+        SELECT * FROM member_table WHERE id = #{id} AND memberPassword = #{memberPassword}
+    </select>
 </mapper>
 

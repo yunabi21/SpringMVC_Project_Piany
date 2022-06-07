@@ -39,7 +39,7 @@
         <div class="header-side-menu">
           <a href="${pageContext.request.contextPath}/member/detail?id=${sessionScope.loginId}"><img class="user-icon" alt="" src="../../../resources/img/user.png"></a>
           <a href="${pageContext.request.contextPath}/cart/list?id=${sessionScope.loginId}"><img class="shopping-cart-icon" alt="" src="../../../resources/img/shopping-cart.png"></a>
-          <a href="/member/logout" class="side-menu-text">${sessionScope.loginMemberId} 님 로그아웃</a>
+          <a href="${pageContext.request.contextPath}/member/logout" class="side-menu-text">${sessionScope.loginMemberId} 님 로그아웃</a>
         </div>
       </c:when>
       <c:otherwise>

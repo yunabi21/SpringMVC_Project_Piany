@@ -30,4 +30,14 @@ public class MemberRepository {
     System.out.println("MemberRepository.findMemberPw");
     return sql.selectOne("Member.findMemberPw", memberDTO);
   }
+
+  public MemberDTO findById(Long id) {
+    System.out.println("MemberRepository.findById");
+    return sql.selectOne("Member.findById", id);
+  }
+
+  public int passwordConfirm(MemberDTO memberDTO) {
+    System.out.println("MemberRepository.passwordConfirm");
+    return sql.selectOne("Member.passwordConfirm", memberDTO);
+  }
 }

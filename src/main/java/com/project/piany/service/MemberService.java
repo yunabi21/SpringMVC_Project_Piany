@@ -32,4 +32,22 @@ public class MemberService {
     System.out.println("MemberService.findMemberPw");
     return memberRepository.findMemberPw(memberDTO);
   }
+
+  public MemberDTO findById(Long id) {
+    System.out.println("MemberService.findById");
+    return memberRepository.findById(id);
+  }
+
+  public String passwordConfirm(MemberDTO memberDTO) {
+    System.out.println("MemberService.passwordConfirm");
+
+    int result = memberRepository.passwordConfirm(memberDTO);
+    String confirmResult;
+    if (result > 0) {
+      confirmResult = "ok";
+    } else {
+      confirmResult = "no";
+    }
+    return confirmResult;
+  }
 }

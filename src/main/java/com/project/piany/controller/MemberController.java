@@ -94,4 +94,28 @@ public class MemberController {
     System.out.println("MemberController.findMemberPw");
     return memberService.findMemberPw(memberDTO);
   }
+
+  @GetMapping("/detail")
+  public String detail(@RequestParam("id") Long id, Model model) {
+    System.out.println("MemberController.detail");
+
+    MemberDTO member = memberService.findById(id);
+    model.addAttribute("member", member);
+    return "/member/detail";
+  }
+
+  @GetMapping("/passwordConfirm")
+  public String passwordConfirm(@RequestParam("id") Long id, Model model) {
+    System.out.println("MemberController.passwordConfirm");
+
+    model.addAttribute("id", id);
+    return "/member/passwordConfirm";
+  }
+
+  @PostMapping("/passwordConfirm")
+  public String passwordConfirm(@ModelAttribute MemberDTO memberDTO) {
+    System.out.println("MemberController.passwordConfirm");
+
+    return memberService.passwordConfirm(memberDTO);
+  }
 }
