@@ -37,7 +37,7 @@ public class MemberController {
   }
 
   @GetMapping("/login")
-  public String login() {
+  public String loginForm() {
     System.out.println("MemberController.login");
     return "/member/login";
   }
