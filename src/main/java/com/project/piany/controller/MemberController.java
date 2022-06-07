@@ -59,4 +59,39 @@ public class MemberController {
       return "/member/login";
     }
   }
+
+  @GetMapping("/logout")
+  public String logout(HttpSession session) {
+    System.out.println("MemberController.logout");
+
+    session.invalidate();
+    return "index";
+  }
+
+  @GetMapping("/findMemberId")
+  public String findMemberId() {
+    System.out.println("MemberController.findMemberId");
+    return "/member/findMemberId";
+  }
+
+  @PostMapping("/findMemberId")
+  public @ResponseBody MemberDTO findMemberId(@RequestParam("memberEmail") String memberEmail) {
+    System.out.println("MemberController.findMemberId");
+
+    MemberDTO memberDTO = null;
+    memberDTO = memberService.findMemberId(memberEmail);
+    return memberDTO;
+  }
+
+  @GetMapping("/findMemberPw")
+  public String findMemberPw() {
+    System.out.println("MemberController.findMemberPw");
+    return "/member/findMemberPw";
+  }
+
+  @PostMapping("/findMemberPw")
+  public @ResponseBody MemberDTO findMemberPw(@ModelAttribute MemberDTO memberDTO) {
+    System.out.println("MemberController.findMemberPw");
+    return memberService.findMemberPw(memberDTO);
+  }
 }

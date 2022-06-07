@@ -20,4 +20,14 @@ public class MemberRepository {
     System.out.println("MemberRepository.save");
     return sql.insert("Member.save", memberDTO);
   }
+
+  public MemberDTO findMemberId(String memberEmail) {
+    System.out.println("MemberRepository.findMemberId");
+    return sql.selectOne("Member.findMemberId", memberEmail);
+  }
+
+  public MemberDTO findMemberPw(MemberDTO memberDTO) {
+    System.out.println("MemberRepository.findMemberPw");
+    return sql.selectOne("Member.findMemberPw", memberDTO);
+  }
 }

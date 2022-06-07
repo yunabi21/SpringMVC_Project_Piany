@@ -48,9 +48,9 @@
   </div>
 
   <div class="find-wrap">
-    <li><a href="#" class="find-wrap-a">아이디 찾기</a></li>
+    <li><a href="javascript:void(0)" onclick="findMemberId()" class="find-wrap-a">아이디 찾기</a></li>
     <li class="find-wrap-symbol">|</li>
-    <li><a href="#" class="find-wrap-a">비밀번호 찾기</a></li>
+    <li><a href="javascript:void(0)" onclick="findMemberPw()" class="find-wrap-a">비밀번호 찾기</a></li>
     <li class="find-wrap-symbol">|</li>
     <li><a href="${pageContext.request.contextPath}/member/save" class="find-wrap-a">회원가입</a></li>
   </div>
@@ -61,4 +61,13 @@
 </form>
 </div>
 </body>
+<script>
+  const findMemberId = () => {
+    window.open('/member/findMemberId', 'findMemberId', 'width=400, height=300, scrollbars=yes, resizable=no');
+  }
+
+  const findMemberPw = () => {
+    window.open('/member/findMemberPw', 'findMemberPw', 'width=400, height=400, scrollbars=yes, resizable=no');
+  }
+</script>
 </html>

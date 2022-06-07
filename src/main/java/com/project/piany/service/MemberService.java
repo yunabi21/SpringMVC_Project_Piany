@@ -22,4 +22,14 @@ public class MemberService {
     int saveResult = memberRepository.save(memberDTO);
     return saveResult > 0;
   }
+
+  public MemberDTO findMemberId(String memberEmail) {
+    System.out.println("MemberService.findMemberId");
+    return memberRepository.findMemberId(memberEmail);
+  }
+
+  public MemberDTO findMemberPw(MemberDTO memberDTO) {
+    System.out.println("MemberService.findMemberPw");
+    return memberRepository.findMemberPw(memberDTO);
+  }
 }

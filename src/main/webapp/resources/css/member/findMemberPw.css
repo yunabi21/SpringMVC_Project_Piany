@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+
+/* main */
+* {
+  font-family: 'Noto Sans KR', sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+}
+
+.input-container {
+  height: 240px;
+  text-align: center;
+}
+
+.input-container .input-memberEmail input:focus,
+.input-container .submit-button-container input:focus {
+  outline: none;
+  border: 2px solid #e86159;
+}
+
+.input-container .input-container-title a {
+  font-size: 24px;
+  font-weight: 700;
+  padding: 12px;
+  margin: 4px;
+  text-decoration: none;
+  color: #222;
+}
+
+.input-container .input-container-title {
+  margin-bottom: 40px;
+}
+
+.input-container .input-memberId input {
+  border-radius: 4px;
+  border: none;
+  width: 75%;
+  height: 42px;
+  background-color: #dae5e7;
+  margin-bottom: 20px;
+}
+
+.input-container .input-memberEmail input {
+  border-radius: 4px;
+  border: none;
+  width: 75%;
+  height: 42px;
+  background-color: #dae5e7;
+  margin-bottom: 40px;
+}
+
+.submit-button-container {
+  margin-bottom: 20px;
+}
+
+.input-container .result-container span {
+  font-size: 14px;
+  font-weight: 350;
+}
+.input-container .submit-button-container input {
+  width: 75%;
+  height: 60px;
+  background-color: #313164;
+  color: #fff;
+  font-size: 18px;
+  letter-spacing: 0.2rem;
+  font-weight: 580;
+  border: none;
+  border-radius: 4px;
+}
