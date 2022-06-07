@@ -14,6 +14,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="../../../resources/css/member/saveForm.css">
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 <body>
 <jsp:include page="../layout/header.jsp" />
@@ -91,7 +92,7 @@
           </div>
           <div class="input-address-container">
             <div class="input-memberZipcode-wrap">
-              <input type="text" name="memberZipcode" placeholder="우편번호" readonly>
+              <input type="text" name="memberZipcode" placeholder="우편번호">
             </div>
             <div class="btn-address-search-wrap">
               <input type="button" value="주소 검색">
@@ -99,7 +100,7 @@
           </div>
           <div class="input-address-wrap">
             <div class="input-memberAddress1-wrap">
-              <input type="text" name="memberAddress1" placeholder="주소" readonly>
+              <input type="text" name="memberAddress1" placeholder="주소">
             </div>
             <div class="input-memberAddress2-wrap">
               <input type="text" name="memberAddress2" placeholder="상세주소">

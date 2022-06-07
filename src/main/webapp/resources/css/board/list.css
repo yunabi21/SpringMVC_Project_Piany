@@ -1,0 +1,36 @@
+.container-wrap {
+  margin-left: 23%;
+  width: 60%;
+}
+
+.board-list-container {
+  display: flex;
+  width: 66%;
+  height: 10%;
+  margin-left: 20%;
+  margin-bottom: 100px;
+  border-bottom: 1px solid #aaa;
+}
+
+.board-list-title {
+  margin-top: 40px;
+  height: fit-content;
+}
+
+.board-list-title h2 {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.btn-list-container {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.save-btn-wrap a {
+  border: 1px solid #888;
+}
+
+.text-center {
+  margin-left: 38%;
+}

@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
   <title>Title</title>
@@ -18,12 +19,12 @@
 <header>
   <div class="header-container">
     <div class="header-logo">
-      <a class="piany-home" href="/"><img class="logo" alt="" src="../../../resources/img/logo.png"></a>
+      <a class="piany-home" href="${pageContext.request.contextPath}/"><img class="logo" alt="" src="../../../resources/img/logo.png"></a>
     </div>
 
     <div class="header-menu">
-      <a class="piany-piano-shop" href="/product/list">상품목록</a>
-      <a class="piany-community-board" href="/board/list">커뮤니티</a>
+      <a class="piany-piano-shop" href="${pageContext.request.contextPath}/product/list">상품목록</a>
+      <a class="piany-community-board" href="${pageContext.request.contextPath}/board/list">커뮤니티</a>
     </div>
 
     <div class="header-search">
@@ -33,12 +34,23 @@
       <input type="text" onmouseover="wrapOver()" onmouseleave="wrapLeave()" class="header-search-input" name="query" placeholder=" 검색할 내용을 입력해주세요">
     </div>
 
-    <div class="header-side-menu">
-      <a href="${pageContext.request.contextPath}/member/detail?id=${sessionScope.loginId}"><img class="user-icon" alt="" src="../../../resources/img/user.png"></a>
-      <a href="${pageContext.request.contextPath}/cart/list?id=${sessionScope.loginId}"><img class="shopping-cart-icon" alt="" src="../../../resources/img/shopping-cart.png"></a>
-      <a href="/member/login" class="side-menu-text">로그인</a>
-      <a href="${pageContext.request.contextPath}/member/save" class="side-menu-text">회원가입</a>
-    </div>
+    <c:choose>
+      <c:when test="${sessionScope.loginId != null}">
+        <div class="header-side-menu">
+          <a href="${pageContext.request.contextPath}/member/detail?id=${sessionScope.loginId}"><img class="user-icon" alt="" src="../../../resources/img/user.png"></a>
+          <a href="${pageContext.request.contextPath}/cart/list?id=${sessionScope.loginId}"><img class="shopping-cart-icon" alt="" src="../../../resources/img/shopping-cart.png"></a>
+          <a href="/member/logout" class="side-menu-text">${sessionScope.loginMemberId} 님 로그아웃</a>
+        </div>
+      </c:when>
+      <c:otherwise>
+        <div class="header-side-menu">
+          <a href="${pageContext.request.contextPath}/member/detail?id=${sessionScope.loginId}"><img class="user-icon" alt="" src="../../../resources/img/user.png"></a>
+          <a href="${pageContext.request.contextPath}/cart/list?id=${sessionScope.loginId}"><img class="shopping-cart-icon" alt="" src="../../../resources/img/shopping-cart.png"></a>
+          <a href="${pageContext.request.contextPath}/member/login" class="side-menu-text">로그인</a>
+          <a href="${pageContext.request.contextPath}/member/save" class="side-menu-text">회원가입</a>
+        </div>
+      </c:otherwise>
+    </c:choose>
   </div>
 </header>
 </body>
