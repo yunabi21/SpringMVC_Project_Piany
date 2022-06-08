@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public class BoardRepository {
@@ -24,9 +25,9 @@ public class BoardRepository {
     sql.insert("Board.save", boardDTO);
   }
 
-  public List<BoardDTO> findAll() {
+  public List<BoardDTO> findAll(Map<String, Integer> pagingParam) {
     System.out.println("BoardRepository.findAll");
-    return sql.selectList("Board.findAll");
+    return sql.selectList("Board.findAll", pagingParam);
   }
 
   public void delete(Long id) {
@@ -37,5 +38,10 @@ public class BoardRepository {
   public void update(BoardDTO boardDTO) {
     System.out.println("BoardRepository.update");
     sql.update("Board.update", boardDTO);
+  }
+
+  public int boardCount() {
+    System.out.println("BoardRepository.boardCount");
+    return sql.selectOne("Board.count");
   }
 }

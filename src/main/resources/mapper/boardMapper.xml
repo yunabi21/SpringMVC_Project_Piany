@@ -3,8 +3,12 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Board">
-    <select id="findAll" resultType="board">
-        SELECT * FROM board_table
+    <select id="findAll" parameterType="java.util.HashMap" resultType="board">
+        SELECT * FROM board_table ORDER BY id DESC LIMIT #{start}, #{limit}
+    </select>
+
+    <select id="count" resultType="int">
+        SELECT COUNT(id) FROM board_table
     </select>
 
     <select id="findById" parameterType="Long" resultType="board">

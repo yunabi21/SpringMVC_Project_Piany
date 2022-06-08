@@ -133,7 +133,7 @@
 </body>
 <script>
   const listBTN = () => {
-    location.href = '/board/list';
+    location.href = '/board/list?page=${page}';
   }
 
   const updateBTN = () => {

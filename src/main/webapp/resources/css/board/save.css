@@ -66,16 +66,31 @@
   margin: 0 150px 20px 150px;
   width: 70%;
   height: 40px;
+  display: flex;
 }
 
 .main-container .button-container .submit-button input {
-  width: 100%;
+  width: 774px;
   height: 60px;
   border: 1px solid #aaa;
   border-radius: 4px;
 }
 
-.main-container .button-container .submit-button input:hover {
+.main-container .button-container .submit-button input:hover,
+.main-container .button-container .update-button input:hover,
+.main-container .button-container .cancel-button input:hover {
   background-color: #333;
   color: #eee;
+}
+
+.main-container .button-container .update-button input,
+.main-container .button-container .cancel-button input {
+  width: 380px;
+  height: 60px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+
+.main-container .button-container .cancel-button {
+  margin-left: auto;
 }
