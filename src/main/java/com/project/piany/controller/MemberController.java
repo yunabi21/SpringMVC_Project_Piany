@@ -113,9 +113,49 @@ public class MemberController {
   }
 
   @PostMapping("/passwordConfirm")
-  public String passwordConfirm(@ModelAttribute MemberDTO memberDTO) {
+  public @ResponseBody String passwordConfirm(@ModelAttribute MemberDTO memberDTO) {
     System.out.println("MemberController.passwordConfirm");
-
+    System.out.println("memberDTO = " + memberDTO);
     return memberService.passwordConfirm(memberDTO);
+  }
+
+  @GetMapping("/passwordConfirm2")
+  public String passwordConfirm2(@RequestParam("id") Long id, Model model) {
+    System.out.println("MemberController.passwordConfirm2");
+
+    model.addAttribute("id", id);
+    return "/member/passwordConfirm2";
+  }
+
+  @PostMapping("/passwordConfirm2")
+  public @ResponseBody String passwordConfirm2(@ModelAttribute MemberDTO memberDTO) {
+    System.out.println("MemberController.passwordConfirm2");
+    return memberService.passwordConfirm2(memberDTO);
+  }
+
+  @GetMapping("/delete")
+  public String delete(@RequestParam("id") Long id, HttpSession session) {
+    System.out.println("MemberController.delete");
+
+    memberService.delete(id);
+    session.invalidate();
+    return "index";
+  }
+
+  @GetMapping("/update")
+  public String update(@RequestParam("id") Long id, Model model) {
+    System.out.println("MemberController.update");
+
+    MemberDTO memberDTO = memberService.findById(id);
+    model.addAttribute("member", memberDTO);
+    return "/member/update";
+  }
+
+  @PostMapping("/update")
+  public String update(@ModelAttribute MemberDTO memberDTO) {
+    System.out.println("MemberController.update");
+
+    memberService.update(memberDTO);
+    return "redirect:/member/detail?id=" + memberDTO.getId();
   }
 }

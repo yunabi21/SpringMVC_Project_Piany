@@ -73,7 +73,7 @@
       <input type="button" onclick="updateBTN()" value="수정하기">
     </div>
     <div class="delete-button">
-      <input type="button" value="탈퇴하기">
+      <input type="button" onclick="deleteBTN()" value="탈퇴하기">
     </div>
   </div>
 </div>
@@ -83,5 +83,8 @@
     location.href = '/member/passwordConfirm?id=${member.id}';
   }
 
+  const deleteBTN = () => {
+    location.href = '/member/passwordConfirm2?id=${member.id}';
+  }
 </script>
 </html>

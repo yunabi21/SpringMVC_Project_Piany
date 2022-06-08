@@ -40,4 +40,14 @@ public class MemberRepository {
     System.out.println("MemberRepository.passwordConfirm");
     return sql.selectOne("Member.passwordConfirm", memberDTO);
   }
+
+  public void delete(Long id) {
+    System.out.println("MemberRepository.delete");
+    sql.delete("Member.delete", id);
+  }
+
+  public void update(MemberDTO memberDTO) {
+    System.out.println("MemberRepository.update");
+    sql.update("Member.update", memberDTO);
+  }
 }

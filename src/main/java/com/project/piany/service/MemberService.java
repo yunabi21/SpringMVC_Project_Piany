@@ -50,4 +50,27 @@ public class MemberService {
     }
     return confirmResult;
   }
+
+  public String passwordConfirm2(MemberDTO memberDTO) {
+    System.out.println("MemberService.passwordConfirm2");
+
+    int result = memberRepository.passwordConfirm(memberDTO);
+    String confirmResult;
+    if (result > 0) {
+      confirmResult = "yes";
+    } else {
+      confirmResult = "no";
+    }
+    return confirmResult;
+  }
+
+  public void delete(Long id) {
+    System.out.println("MemberService.delete");
+    memberRepository.delete(id);
+  }
+
+  public void update(MemberDTO memberDTO) {
+    System.out.println("MemberService.update");
+    memberRepository.update(memberDTO);
+  }
 }
