@@ -142,18 +142,18 @@
       dataType: 'json',
       success: function (result) {
         console.log(result);
-        let output;
+        let output = '';
 
         for (let i in result) {
           console.log(result[i]);
-              output = "<div class='list-comment'>";
+              output += "<div class='list-comment'>";
 
               output += "<div class='comment-writer'>";
               output += "<li>" + result[i].commentWriter + "</li>";
               output += "</div>";
 
               output += "<div class='comment-symbol'>";
-              output += "<li>|</li>";
+              output += "<li>" + "|" + "</li>";
               output += "</div>";
 
               output += "<div class='comment-contents'>";
@@ -161,7 +161,7 @@
               output += "</div>";
 
               output += "<div class='comment-symbol'>";
-              output += "<li>|</li>";
+              output += "<li>" + "|" + "</li>";
               output += "</div>";
 
               output += "<div class='comment-date'>";
