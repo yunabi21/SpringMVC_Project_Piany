@@ -57,6 +57,7 @@
   word-break: break-all;
   border-bottom: 1px solid #aaa;
   margin-bottom: 20px;
+  line-height: 2rem;
 }
 
 .contents-container li {

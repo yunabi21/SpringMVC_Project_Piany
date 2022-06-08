@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
   <title>피아니 커뮤니티</title>
@@ -39,48 +41,22 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <td>123</td>
-        <td>제목 어쩌고 저쩌고</td>
-        <td>작성자1</td>
-        <td>2016.12.02</td>
-        <td>234</td>
-      </tr>
-      <tr>
-        <td>234</td>
-        <td>제목 어쩌고 저쩌고234234</td>
-        <td>작성자2</td>
-        <td>2012.04.21</td>
-        <td>22</td>
-      </tr>
-      <tr>
-        <td>345</td>
-        <td>제목 어쩌고 저쩌고345345</td>
-        <td>작성자3</td>
-        <td>2021.02.04</td>
-        <td>123</td>
-      </tr>
-      <tr>
-        <td>567</td>
-        <td>제목 어쩌고 저쩌고677565</td>
-        <td>작성자4</td>
-        <td>2021.06.02</td>
-        <td>8</td>
-      </tr>
-      <tr>
-        <td>345</td>
-        <td>제목 어쩌고 저쩌고12323</td>
-        <td>작성자5</td>
-        <td>2021.08.24</td>
-        <td>33</td>
-      </tr>
+        <c:forEach items="${boardList}" var="board">
+          <tr>
+            <td>${board.id}</td>
+            <td><a href="${pageContext.request.contextPath}/board/detail?id=${board.id}">${board.boardTitle}</a></td>
+            <td>${board.boardWriter}</td>
+            <td><fmt:formatDate value="${board.boardCreatedDate}" pattern="yyyy-MM-dd"/></td>
+            <td>${board.boardHits}</td>
+          </tr>
+        </c:forEach>
       </tbody>
     </table>
   </div>
 
   <div class="btn-list-container">
     <div class="save-btn-wrap">
-      <a href="#" class="btn btn-default">글 쓰기</a>
+      <a href="/board/save" class="btn btn-default">글 쓰기</a>
     </div>
   </div>
 

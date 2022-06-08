@@ -3,7 +3,20 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Board">
+    <select id="findAll" resultType="board">
+        SELECT * FROM board_table
+    </select>
+
     <select id="findById" parameterType="Long" resultType="board">
         SELECT * FROM board_table WHERE id = #{id}
     </select>
+
+    <update id="updateHits" parameterType="Long">
+        UPDATE board_table SET boardHits = boardHits + 1 WHERE id = #{id}
+    </update>
+
+    <insert id="save" parameterType="board">
+        INSERT INTO board_table (boardWriter, boardTitle, boardContents, boardCreatedDate)
+        VALUES (#{boardWriter}, #{boardTitle}, #{boardContents}, now())
+    </insert>
 </mapper>

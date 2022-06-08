@@ -1,0 +1,81 @@
+.main-container {
+  width: 60%;
+  height: 800px;
+  margin-top: 5%;
+  margin-left: 21%;
+  padding: 10px 20px;
+}
+
+.main-container .title-container {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 80px;
+}
+
+.main-container .writer-container {
+  margin: 0 150px 80px 150px;
+  border-bottom: 1px solid #aaa;
+  width: 70%;
+  height: 40px;
+}
+
+.main-container .writer-container .writer li {
+  list-style: none;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.main-container .subject-container {
+  margin: 0 150px 20px 150px;
+  border-bottom: 1px solid #aaa;
+  width: 70%;
+  height: 40px;
+}
+
+.main-container .subject-container .subject input {
+  width: 100%;
+  font-size: 16px;
+  border: none;
+}
+
+.main-container .subject-container .subject input:focus {
+  outline: none;
+}
+
+.main-container .contents-container {
+  margin: 0 175px 40px 150px;
+  padding: 20px 20px 0 20px;
+  line-height: 2rem;
+  border-bottom: 1px solid #aaa;
+}
+
+.main-container .contents-container .contents textarea {
+  font-size: 14px;
+  word-break: break-all;
+  width: 100%;
+  border: none;
+  min-height: 1rem;
+  resize: none;
+}
+
+.main-container .contents-container .contents textarea:focus {
+  outline: none;
+}
+
+.main-container .button-container {
+  margin: 0 150px 20px 150px;
+  width: 70%;
+  height: 40px;
+}
+
+.main-container .button-container .submit-button input {
+  width: 100%;
+  height: 60px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+
+.main-container .button-container .submit-button input:hover {
+  background-color: #333;
+  color: #eee;
+}

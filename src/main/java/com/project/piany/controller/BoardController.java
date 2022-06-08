@@ -5,9 +5,9 @@ import com.project.piany.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/board")
@@ -17,9 +17,11 @@ public class BoardController {
   private BoardService boardService;
 
   @GetMapping("/list")
-  public String list() {
+  public String list(Model model) {
     System.out.println("BoardController.list");
 
+    List<BoardDTO> boardDTOList = boardService.findAll();
+    model.addAttribute("boardList", boardDTOList);
     return "/board/list";
   }
 
@@ -30,5 +32,17 @@ public class BoardController {
     BoardDTO boardDTO = boardService.findById(id);
     model.addAttribute("board", boardDTO);
     return "/board/detail";
+  }
+
+  @GetMapping("/save")
+  public String save() {
+    System.out.println("BoardController.save");
+    return "/board/save";
+  }
+
+  @PostMapping("/save")
+  public String save(@ModelAttribute BoardDTO boardDTO) {
+    boardService.save(boardDTO);
+    return "redirect:/board/list";
   }
 }

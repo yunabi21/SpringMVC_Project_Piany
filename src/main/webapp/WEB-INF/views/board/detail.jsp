@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
@@ -47,17 +48,38 @@
       </div>
     </div>
 
-    <div class="button-container">
-      <div class="list-button">
-        <input type="button" class="list-btn" value="목록">
-      </div>
-      <div class="edit-button">
-        <input type="button" class="edit-btn" value="수정">
-      </div>
-      <div class="delete-button">
-        <input type="button" class="delete-btn" value="삭제">
-      </div>
-    </div>
+    <c:choose>
+      <c:when test="${sessionScope.loginMemberId eq board.boardWriter}">
+        <div class="button-container">
+          <div class="list-button">
+            <input type="button" class="list-btn" value="목록">
+          </div>
+          <div class="edit-button">
+            <input type="button" class="edit-btn" value="수정">
+          </div>
+          <div class="delete-button">
+            <input type="button" class="delete-btn" value="삭제">
+          </div>
+        </div>
+      </c:when>
+      <c:when test="${sessionScope.loginMemberId eq 'admin'}">
+        <div class="button-container">
+          <div class="list-button">
+            <input type="button" class="list-btn" value="목록">
+          </div>
+          <div class="delete-button">
+            <input type="button" class="delete-btn" value="삭제">
+          </div>
+        </div>
+      </c:when>
+      <c:otherwise>
+        <div class="button-container">
+          <div class="list-button">
+            <input type="button" class="list-btn" value="목록">
+          </div>
+        </div>
+      </c:otherwise>
+    </c:choose>
 
     <div class="comment-container">
       <div class="add-comment-container">
