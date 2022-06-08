@@ -28,4 +28,14 @@ public class BoardRepository {
     System.out.println("BoardRepository.findAll");
     return sql.selectList("Board.findAll");
   }
+
+  public void delete(Long id) {
+    System.out.println("BoardRepository.delete");
+    sql.delete("Board.delete", id);
+  }
+
+  public void update(BoardDTO boardDTO) {
+    System.out.println("BoardRepository.update");
+    sql.update("Board.update", boardDTO);
+  }
 }

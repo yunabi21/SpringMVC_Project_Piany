@@ -37,7 +37,7 @@
           <li><fmt:formatDate value="${board.boardCreatedDate}" pattern="yyyy-MM-dd"/></li>
         </div>
         <div class="hits">
-          <li>${board.boardHits}</li>
+          <li>조회수 ${board.boardHits}</li>
         </div>
       </div>
     </div>
@@ -52,30 +52,30 @@
       <c:when test="${sessionScope.loginMemberId eq board.boardWriter}">
         <div class="button-container">
           <div class="list-button">
-            <input type="button" class="list-btn" value="목록">
+            <input type="button" onclick="listBTN()" class="list-btn" value="목록">
           </div>
           <div class="edit-button">
-            <input type="button" class="edit-btn" value="수정">
+            <input type="button" onclick="updateBTN()" class="edit-btn" value="수정">
           </div>
           <div class="delete-button">
-            <input type="button" class="delete-btn" value="삭제">
+            <input type="button" onclick="deleteBTN()" class="delete-btn" value="삭제">
           </div>
         </div>
       </c:when>
       <c:when test="${sessionScope.loginMemberId eq 'admin'}">
         <div class="button-container">
           <div class="list-button">
-            <input type="button" class="list-btn" value="목록">
+            <input type="button" onclick="listBTN()" class="list-btn" value="목록">
           </div>
           <div class="delete-button">
-            <input type="button" class="delete-btn" value="삭제">
+            <input type="button" onclick="deleteBTN()" class="delete-btn" value="삭제">
           </div>
         </div>
       </c:when>
       <c:otherwise>
         <div class="button-container">
           <div class="list-button">
-            <input type="button" class="list-btn" value="목록">
+            <input type="button" onclick="listBTN()" class="list-btn" value="목록">
           </div>
         </div>
       </c:otherwise>
@@ -124,23 +124,6 @@
           </div>
         </div>
 
-        <div class="list-comment">
-          <div class="comment-writer">
-            <li>댓글 작성자3</li>
-          </div>
-          <div class="comment-symbol">
-            <li>|</li>
-          </div>
-          <div class="comment-contents">
-            <li>댓글 댓글</li>
-          </div>
-          <div class="comment-symbol2">
-            <li>|</li>
-          </div>
-          <div class="comment-date">
-            <li>2022-08-02</li>
-          </div>
-        </div>
       </div>
 
     </div>
@@ -148,4 +131,17 @@
   </div>
 </main>
 </body>
+<script>
+  const listBTN = () => {
+    location.href = '/board/list';
+  }
+
+  const updateBTN = () => {
+    location.href = '/board/update?id=${board.id}';
+  }
+
+  const deleteBTN = () => {
+    location.href = '/board/delete?id=${board.id}';
+  }
+</script>
 </html>

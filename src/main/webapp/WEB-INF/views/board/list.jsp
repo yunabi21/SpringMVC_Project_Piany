@@ -53,12 +53,19 @@
       </tbody>
     </table>
   </div>
-
-  <div class="btn-list-container">
-    <div class="save-btn-wrap">
-      <a href="/board/save" class="btn btn-default">글 쓰기</a>
+<c:choose>
+  <c:when test="${sessionScope.loginMemberId eq null}">
+    <div class="btn-list-container">
     </div>
-  </div>
+  </c:when>
+  <c:otherwise>
+    <div class="btn-list-container">
+      <div class="save-btn-wrap">
+        <a href="/board/save" class="btn btn-default">글 쓰기</a>
+      </div>
+    </div>
+  </c:otherwise>
+</c:choose>
 
   <div class="text-center">
     <ul class="pagination">

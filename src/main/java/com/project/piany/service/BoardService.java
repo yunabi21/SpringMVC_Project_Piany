@@ -27,4 +27,14 @@ public class BoardService {
     System.out.println("BoardService.findAll");
     return boardRepository.findAll();
   }
+
+  public void delete(Long id) {
+    System.out.println("BoardService.delete");
+    boardRepository.delete(id);
+  }
+
+  public void update(BoardDTO boardDTO) {
+    System.out.println("BoardService.update");
+    boardRepository.update(boardDTO);
+  }
 }

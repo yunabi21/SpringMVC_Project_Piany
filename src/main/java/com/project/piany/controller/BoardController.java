@@ -42,7 +42,34 @@ public class BoardController {
 
   @PostMapping("/save")
   public String save(@ModelAttribute BoardDTO boardDTO) {
+    System.out.println("BoardController.save");
+
     boardService.save(boardDTO);
+    return "redirect:/board/list";
+  }
+
+  @GetMapping("/delete")
+  public String delete(@RequestParam("id") Long id) {
+    System.out.println("BoardController.delete");
+
+    boardService.delete(id);
+    return "redirect:/board/list";
+  }
+
+  @GetMapping("/update")
+  public String update(@RequestParam("id") Long id, Model model) {
+    System.out.println("BoardController.update");
+
+    BoardDTO boardDTO = boardService.findById(id);
+    model.addAttribute("board", boardDTO);
+    return "/board/update";
+  }
+
+  @PostMapping("/update")
+  public String update(@ModelAttribute BoardDTO boardDTO) {
+    System.out.println("BoardController.update");
+
+    boardService.update(boardDTO);
     return "redirect:/board/list";
   }
 }
