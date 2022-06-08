@@ -16,6 +16,8 @@
   <title>피아니 게시판 상세 페이지</title>
 
   <link rel="stylesheet" href="../../../resources/css/board/detail.css">
+  <script src="../../../resources/js/jquery.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 </head>
 <body>
 <jsp:include page="../layout/header.jsp" />
@@ -83,51 +85,33 @@
 
     <div class="comment-container">
       <div class="add-comment-container">
-        <input type="text" class="input-text" placeholder="댓글 내용을 입력하세요..">
-        <input type="button" class="add-btn" value="댓글 작성">
+        <input type="hidden" id="commentWriter" name="commentWriter" value="${sessionScope.loginMemberId}">
+        <input type="text" id="commentContents" name="commentContents" class="input-text" placeholder="댓글 내용을 입력하세요..">
+        <input type="button" onclick="commentSaveBTN()" class="add-btn" value="댓글 작성">
       </div>
 
-      <div class="list-comment-container">
-        <div class="list-comment">
-          <div class="comment-writer">
-            <li>댓글 작성자1</li>
+      <div class="list-comment-container" id="comment-list">
+        <c:forEach var="comment" items="${commentList}">
+          <div class="list-comment">
+            <div class="comment-writer">
+              <li>${comment.commentWriter}</li>
+            </div>
+            <div class="comment-symbol">
+              <li>|</li>
+            </div>
+            <div class="comment-contents">
+              <li>${comment.commentContents}</li>
+            </div>
+            <div class="comment-symbol">
+              <li>|</li>
+            </div>
+            <div class="comment-date">
+              <li><fmt:formatDate value="${comment.commentCreatedDate}" pattern="yyyy-MM-dd" /> </li>
+            </div>
           </div>
-          <div class="comment-symbol">
-            <li>|</li>
-          </div>
-          <div class="comment-contents">
-            <li>댓글 내용</li>
-          </div>
-          <div class="comment-symbol2">
-            <li>|</li>
-          </div>
-          <div class="comment-date">
-            <li>2022-02-02</li>
-          </div>
-        </div>
-
-        <div class="list-comment">
-          <div class="comment-writer">
-            <li>댓글 작성자2</li>
-          </div>
-          <div class="comment-symbol">
-            <li>|</li>
-          </div>
-          <div class="comment-contents">
-            <li>댓글 내용</li>
-          </div>
-          <div class="comment-symbol2">
-            <li>|</li>
-          </div>
-          <div class="comment-date">
-            <li>2022-04-04</li>
-          </div>
-        </div>
-
+        </c:forEach>
       </div>
-
     </div>
-
   </div>
 </main>
 </body>
@@ -142,6 +126,58 @@
 
   const deleteBTN = () => {
     location.href = '/board/delete?id=${board.id}';
+  }
+
+  const commentSaveBTN = () => {
+    const commentWriter = document.getElementById("commentWriter").value;
+    const commentContents = document.getElementById("commentContents").value;
+    const boardId = '${board.id}';
+
+    $.ajax({
+      url: '/comment/save',
+      type: 'post',
+      data: {"boardId": boardId,
+              "commentWriter": commentWriter,
+              "commentContents": commentContents},
+      dataType: 'json',
+      success: function (result) {
+        console.log(result);
+        let output;
+
+        for (let i in result) {
+          console.log(result[i]);
+              output = "<div class='list-comment'>";
+
+              output += "<div class='comment-writer'>";
+              output += "<li>" + result[i].commentWriter + "</li>";
+              output += "</div>";
+
+              output += "<div class='comment-symbol'>";
+              output += "<li>|</li>";
+              output += "</div>";
+
+              output += "<div class='comment-contents'>";
+              output += "<li>" + result[i].commentContents + "</li>";
+              output += "</div>";
+
+              output += "<div class='comment-symbol'>";
+              output += "<li>|</li>";
+              output += "</div>";
+
+              output += "<div class='comment-date'>";
+              output += "<li>" + moment(result[i].commentCreatedDate).format("YYYY-MM-DD") + "</li>";
+              output += "</div>";
+
+              output += "</div>";
+        }
+
+        document.getElementById("comment-list").innerHTML = output;
+        document.getElementById("commentContents").value = '';
+      },
+      err: function () {
+        alert('실패');
+      }
+    });
   }
 </script>
 </html>

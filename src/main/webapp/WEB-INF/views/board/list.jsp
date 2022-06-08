@@ -79,16 +79,4 @@
 </div>
 </body>
 
-<script>
-  const wrapOver = () => {
-    const wrap = document.getElementById("search-icon-wrap");
-    wrap.style.backgroundColor = "#eaeaea";
-  }
-
-  const wrapLeave = () => {
-    const wrap = document.getElementById("search-icon-wrap");
-    wrap.style.backgroundColor = "#f5f5f5";
-  }
-</script>
-
 </html>

@@ -1,8 +1,10 @@
 package com.project.piany.controller;
 
 import com.project.piany.dto.BoardDTO;
+import com.project.piany.dto.CommentDTO;
 import com.project.piany.dto.PageDTO;
 import com.project.piany.service.BoardService;
+import com.project.piany.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +18,9 @@ public class BoardController {
 
   @Autowired
   private BoardService boardService;
+
+  @Autowired
+  private CommentService commentService;
 
   @GetMapping("/list")
   public String list(@RequestParam(value = "page", defaultValue = "1", required = false) int page,
@@ -37,8 +42,11 @@ public class BoardController {
     System.out.println("BoardController.detail");
 
     BoardDTO boardDTO = boardService.findById(id);
+    List<CommentDTO> commentDTOList = commentService.findAll(id);
+
     model.addAttribute("board", boardDTO);
     model.addAttribute("page", page);
+    model.addAttribute("commentList", commentDTOList);
     return "/board/detail";
   }
 
