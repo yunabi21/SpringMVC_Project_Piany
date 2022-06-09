@@ -11,4 +11,12 @@
         INSERT INTO comment_table (boardId, commentWriter, commentContents, commentCreatedDate)
         VALUES (#{boardId}, #{commentWriter}, #{commentContents}, now())
     </insert>
+
+    <delete id="delete" parameterType="Long">
+        DELETE FROM comment_table WHERE id = #{id}
+    </delete>
+
+    <update id="update" parameterType="comment">
+        UPDATE comment_table SET commentContents = #{commentContents} WHERE id = #{id}
+    </update>
 </mapper>

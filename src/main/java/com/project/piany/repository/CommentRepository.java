@@ -22,4 +22,14 @@ public class CommentRepository {
     System.out.println("CommentRepository.save");
     sql.insert("Comment.save", commentDTO);
   }
+
+  public void delete(Long id) {
+    System.out.println("CommentRepository.delete");
+    sql.delete("Comment.delete", id);
+  }
+
+  public void update(CommentDTO commentDTO) {
+    System.out.println("CommentRepository.update");
+    sql.update("Comment.update", commentDTO);
+  }
 }

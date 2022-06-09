@@ -22,4 +22,14 @@ public class CommentService {
     System.out.println("CommentService.save");
     commentRepository.save(commentDTO);
   }
+
+  public void delete(Long id) {
+    System.out.println("CommentService.delete");
+    commentRepository.delete(id);
+  }
+
+  public void update(CommentDTO commentDTO) {
+    System.out.println("CommentService.update");
+    commentRepository.update(commentDTO);
+  }
 }

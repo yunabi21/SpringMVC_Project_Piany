@@ -99,9 +99,26 @@
             <div class="comment-symbol">
               <li>|</li>
             </div>
-            <div class="comment-contents">
-              <li>${comment.commentContents}</li>
+            <div id="comment${comment.id}" class="comment-contents">
+              <li id="commentContents${comment.id}">${comment.commentContents}</li>
             </div>
+            <c:choose>
+              <c:when test="${sessionScope.loginMemberId eq comment.commentWriter}">
+                <div class="comment-update-delete-button">
+                  <div id="updateWrap${comment.id}" class="comment-update-button">
+                    <input type="button" onclick="commentUpdateBTN(${comment.id})" value="수정">
+                  </div>
+                  <div id="deleteWrap${comment.id}" class="comment-delete-button">
+                    <input type="button" onclick="commentDeleteBTN(${comment.id})" value="삭제">
+                  </div>
+                </div>
+              </c:when>
+              <c:otherwise>
+                <div class="comment-update-delete-button">
+
+                </div>
+              </c:otherwise>
+            </c:choose>
             <div class="comment-symbol">
               <li>|</li>
             </div>
@@ -143,32 +160,52 @@
       success: function (result) {
         console.log(result);
         let output = '';
+        const sessionId = '${sessionScope.loginMemberId}';
 
         for (let i in result) {
           console.log(result[i]);
-              output += "<div class='list-comment'>";
 
-              output += "<div class='comment-writer'>";
-              output += "<li>" + result[i].commentWriter + "</li>";
-              output += "</div>";
+          let commentWriter = result[i].commentWriter;
 
-              output += "<div class='comment-symbol'>";
-              output += "<li>" + "|" + "</li>";
-              output += "</div>";
+          console.log(sessionId / commentWriter);
 
-              output += "<div class='comment-contents'>";
-              output += "<li>" + result[i].commentContents + "</li>";
-              output += "</div>";
+          output += "<div class='list-comment'>";
 
-              output += "<div class='comment-symbol'>";
-              output += "<li>" + "|" + "</li>";
-              output += "</div>";
+          output += "<div class='comment-writer'>";
+          output += "<li>" + result[i].commentWriter + "</li>";
+          output += "</div>";
 
-              output += "<div class='comment-date'>";
-              output += "<li>" + moment(result[i].commentCreatedDate).format("YYYY-MM-DD") + "</li>";
-              output += "</div>";
+          output += "<div class='comment-symbol'>";
+          output += "<li>" + "|" + "</li>";
+          output += "</div>";
 
-              output += "</div>";
+          output += "<div class='comment-contents'>";
+          output += "<li>" + result[i].commentContents + "</li>";
+          output += "</div>";
+
+          if (sessionId === commentWriter) {
+            output += "<div class='comment-update-delete-button'>";
+            output += "<div class='comment-update-button'>";
+            output += "<input type='button' onclick='commentUpdateBTN(" + result[i].id + "," + " " + result[i].commentContents + ")' value='수정'>";
+            output += "</div>";
+            output += "<div class='comment-delete-button'>";
+            output += "<input type='button' onclick='commentDeleteBTN(" + result[i].id + ")' value='삭제'>";
+            output += "</div>";
+            output += "</div>";
+          } else {
+            output += "<div class='comment-update-delete-button'>";
+            output += "</div>";
+          }
+
+          output += "<div class='comment-symbol'>";
+          output += "<li>" + "|" + "</li>";
+          output += "</div>";
+
+          output += "<div class='comment-date'>";
+          output += "<li>" + moment(result[i].commentCreatedDate).format("YYYY-MM-DD") + "</li>";
+          output += "</div>";
+
+          output += "</div>";
         }
 
         document.getElementById("comment-list").innerHTML = output;
@@ -178,6 +215,113 @@
         alert('실패');
       }
     });
+  }
+
+  const commentDeleteBTN = (id) => {
+    const boardId = '${board.id}';
+
+    $.ajax({
+      url: '/comment/delete?id=' + id,
+      type: 'get',
+      data: {"id": id,
+              "boardId": boardId},
+      dataType: 'json',
+      success: function (result) {
+        console.log(result);
+        let output = '';
+        const sessionId = '${sessionScope.loginMemberId}';
+
+        for (let i in result) {
+          console.log(result[i]);
+
+          let commentWriter = result[i].commentWriter;
+
+          console.log(sessionId / commentWriter);
+
+          output += "<div class='list-comment'>";
+
+          output += "<div class='comment-writer'>";
+          output += "<li>" + result[i].commentWriter + "</li>";
+          output += "</div>";
+
+          output += "<div class='comment-symbol'>";
+          output += "<li>" + "|" + "</li>";
+          output += "</div>";
+
+          output += "<div class='comment-contents'>";
+          output += "<li>" + result[i].commentContents + "</li>";
+          output += "</div>";
+
+          if (sessionId === commentWriter) {
+            output += "<div class='comment-update-delete-button'>";
+            output += "<div class='comment-update-button'>";
+            output += "<input type='button' value='수정'>";
+            output += "</div>";
+            output += "<div class='comment-delete-button'>";
+            output += "<input type='button' onclick='commentDeleteBTN(" + result[i].id + ")' value='삭제'>";
+            output += "</div>";
+            output += "</div>";
+          } else {
+            output += "<div class='comment-update-delete-button'>";
+            output += "</div>";
+          }
+
+          output += "<div class='comment-symbol'>";
+          output += "<li>" + "|" + "</li>";
+          output += "</div>";
+
+          output += "<div class='comment-date'>";
+          output += "<li>" + moment(result[i].commentCreatedDate).format("YYYY-MM-DD") + "</li>";
+          output += "</div>";
+
+          output += "</div>";
+        }
+
+        document.getElementById("comment-list").innerHTML = output;
+
+      },
+      err: function () {
+        alert('실패');
+      }
+    });
+  }
+
+  const commentUpdateBTN = (id) => {
+    const contentsForm = document.getElementById("comment" + id);
+    const preContents = document.getElementById("commentContents" + id).innerHTML;
+
+    console.log(preContents);
+    const updateWrap = document.getElementById("updateWrap" + id);
+    const cancelWrap = document.getElementById("deleteWrap" + id);
+
+    contentsForm.innerHTML = "<input type='text' class='input-text' id='updateCommentContents' name='commentContents' value='" + preContents + "'>";
+    updateWrap.innerHTML = "<input type='button' onclick='updateBTN2(" + id + ")' value='수정'>";
+    cancelWrap.innerHTML = "<input type='button' onclick='cancelBTN2()' value='취소'>";
+  }
+
+  const updateBTN2 = (id) => {
+    const contents = document.getElementById("updateCommentContents").value;
+    const boardId = '${board.id}';
+    console.log(id);
+    $.ajax({
+      url: '/comment/update?id=' + id,
+      type: 'post',
+      data: {"boardId": boardId,
+              "id": id,
+              "commentContents": contents},
+      dataType: 'json',
+      success: function () {
+
+      },
+      err: function () {
+        alert('실패');
+      }
+    });
+    location.href = '/board/detail?id=${board.id}';
+  }
+
+  const cancelBTN2 = () => {
+    location.href = '/board/detail?id=${board.id}';
   }
 </script>
 </html>

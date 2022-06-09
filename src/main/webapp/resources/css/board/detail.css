@@ -138,7 +138,7 @@
 }
 
 .list-comment-container .comment-contents {
-  width: 760px;
+  width: 630px;
   margin-left: 20px;
   word-break: break-all;
 }
@@ -146,4 +146,21 @@
 .list-comment-container .comment-date {
   width: 100px;
   margin-left: 20px;
+}
+
+.comment-update-delete-button {
+  display: flex;
+  width: 100px;
+}
+
+.comment-delete-button {
+  margin-left: 10px;
+}
+
+.list-comment-container .comment-contents .input-text {
+  width: 600px;
+  word-break: break-all;
+  height: 40px;
+  border: 1px solid #4f4f4f;
+  border-radius: 2px;
 }
