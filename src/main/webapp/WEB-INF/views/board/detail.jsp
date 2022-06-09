@@ -179,8 +179,8 @@
           output += "<li>" + "|" + "</li>";
           output += "</div>";
 
-          output += "<div class='comment-contents'>";
-          output += "<li>" + result[i].commentContents + "</li>";
+          output += "<div id='commentId" + result[i].id + "' class='comment-contents'>";
+          output += "<li id='commentContents" + result[i].id + "'>" + result[i].commentContents + "</li>";
           output += "</div>";
 
           if (sessionId === commentWriter) {
@@ -248,14 +248,14 @@
           output += "<li>" + "|" + "</li>";
           output += "</div>";
 
-          output += "<div class='comment-contents'>";
-          output += "<li>" + result[i].commentContents + "</li>";
+          output += "<div id='commentId" + result[i].id + "' class='comment-contents'>";
+          output += "<li id='commentContents" + result[i].id + "'>" + result[i].commentContents + "</li>";
           output += "</div>";
 
           if (sessionId === commentWriter) {
             output += "<div class='comment-update-delete-button'>";
             output += "<div class='comment-update-button'>";
-            output += "<input type='button' value='수정'>";
+            output += "<input type='button' onclick='commentUpdateBTN(" + result[i].id + "," + " " + result[i].commentContents + ")' value='수정'>";
             output += "</div>";
             output += "<div class='comment-delete-button'>";
             output += "<input type='button' onclick='commentDeleteBTN(" + result[i].id + ")' value='삭제'>";

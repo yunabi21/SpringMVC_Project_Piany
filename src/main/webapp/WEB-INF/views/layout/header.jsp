@@ -21,11 +21,21 @@
     <div class="header-logo">
       <a class="piany-home" href="${pageContext.request.contextPath}/"><img class="logo" alt="" src="../../../resources/img/logo.png"></a>
     </div>
-
-    <div class="header-menu">
-      <a class="piany-piano-shop" href="${pageContext.request.contextPath}/product/list">상품목록</a>
-      <a class="piany-community-board" href="${pageContext.request.contextPath}/board/list">커뮤니티</a>
-    </div>
+    <c:choose>
+      <c:when test="${sessionScope.loginMemberId eq 'admin'}">
+        <div class="header-menu">
+          <a class="piany-piano-shop" href="${pageContext.request.contextPath}/product/list">상품목록</a>
+          <a class="piany-community-board" href="${pageContext.request.contextPath}/board/list">커뮤니티</a>
+          <a class="piany-product-save" href="/product/save">상품등록</a>
+        </div>
+      </c:when>
+      <c:otherwise>
+        <div class="header-menu">
+          <a class="piany-piano-shop" href="${pageContext.request.contextPath}/product/list">상품목록</a>
+          <a class="piany-community-board" href="${pageContext.request.contextPath}/board/list">커뮤니티</a>
+        </div>
+      </c:otherwise>
+    </c:choose>
 
     <div class="header-search">
       <div id="search-icon-wrap" class="search-icon-wrap">

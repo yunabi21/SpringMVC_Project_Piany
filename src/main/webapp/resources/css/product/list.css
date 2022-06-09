@@ -34,52 +34,11 @@ body {
   font-size: 14px;
 }
 
-.item-list-wrap {
-  display: flex;
-  width: 60%;
-  height: 20%;
-  margin-left: 23%;
-  padding: 0;
-}
-
-.item {
-  height: 240px;
-  width: 320px;
-  margin: 20px 40px;
-}
-
-.item img {
-  width: 200px;
-  height: 240px;
-}
-
-.item-list-text-wrap {
-  display: flex;
-  width: 60%;
-  height: 13%;
-  margin-left: 23%;
-  padding: 0;
-}
-
-.item-text {
-  width: 320px;
-  height: 75px;
-  margin: 60px 0 -10px 50px;
-}
-
-.item-text2 {
-  width: 320px;
-  margin: -20px 55px -10px 50px;
-  color: #444;
-}
-
-.item-sub-text {
-  word-break: break-all;
-}
-
 .item-price {
   letter-spacing: 0.1rem;
   color: #222;
+  list-style: none;
+  margin-top: auto;
 }
 
 .view-more-a {
@@ -91,4 +50,23 @@ body {
 
 .view-more-a h4:hover {
   color: #e86159;
+}
+
+.card {
+  height: 420px !important;
+}
+
+.card-body {
+  height: 170px !important;
+}
+
+.card img {
+  padding: 2px;
+  width: 240px;
+  height: 240px;
+}
+
+.list-container {
+  margin-left: 22% !important;
+  width: 1200px;
 }

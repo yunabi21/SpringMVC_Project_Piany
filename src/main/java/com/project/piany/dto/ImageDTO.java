@@ -8,12 +8,9 @@ import org.springframework.web.multipart.MultipartFile;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductDTO {
+public class ImageDTO {
   private Long id;
-  private String productName;
-  private String productContents;
-  private Integer productPrice;
-  private Integer productStock;
-  private MultipartFile productImage;
-  private String productImageName;
+  private Long productId;
+  private MultipartFile imageFile;
+  private String imageFileName;
 }

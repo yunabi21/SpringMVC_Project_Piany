@@ -5,7 +5,8 @@
   Time: PM 3:25
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
   <title>피아니 상품목록 페이지</title>
@@ -14,6 +15,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="../../../resources/css/product/list.css">
+  <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css">
 </head>
 <body>
 <jsp:include page="../layout/header.jsp" />
@@ -27,119 +29,23 @@
   </div>
 </div>
 
-<div class="item-list-wrap">
-  <div class="item">
-    <img src="../../../resources/img/banner1.png">
-  </div>
-  <div class="item">
-    <img src="../../../resources/img/banner2.png">
-  </div>
-  <div class="item">
-    <img src="../../../resources/img/banner1.png">
-  </div>
-  <div class="item">
-    <img src="../../../resources/img/banner2.png">
-  </div>
+<div class="row row-cols-1 row-cols-md-4 g-4 list-container">
+
+  <c:forEach var="product" items="${productList}">
+    <div class="col">
+      <div class="card">
+        <img src="/upload/product/${product.productImageName}" alt="..">
+        <div class="card-body">
+          <h5 class="card-title">${product.productName}</h5>
+          <p class="card-text">${product.productContents}</p>
+          <li class="align-bottom item-price">₩ ${product.productPrice}</li>
+        </div>
+      </div>
+    </div>
+  </c:forEach>
 </div>
 
-<div class="item-list-text-wrap">
-  <div class="item-text">
-    <h4>피아노1</h4>
-  </div>
-  <div class="item-text">
-    <h4>피아노2</h4>
-  </div>
-  <div class="item-text">
-    <h4>피아노3</h4>
-  </div>
-  <div class="item-text">
-    <h4>피아노4</h4>
-  </div>
-</div>
 
-<div class="item-list-text-wrap">
-  <div class="item-text2">
-    <h5 class="item-sub-text">ㄴㄷㄹㄴㄷㄹㄴㅇㄹㄴㄷㄹㄴㅇㄹㄴㄷㄹㄴㅇㄹㅇㄴㄹㄷㄹ</h5>
-    <div class="item-price">
-      <h5>₩ 200,000</h5>
-    </div>
-  </div>
-  <div class="item-text2">
-    <h5 class="item-sub-text">ㄴㅇㄹㄴㅇㄹㄴㅇㄹㅇㄴㄹㄴㅇㄹㄴㅇㄹ</h5>
-    <div class="item-price">
-      <h5>₩ 200,000</h5>
-    </div>
-  </div>
-  <div class="item-text2">
-    <h5 class="item-sub-text">ㄴㅇㄹㄴㅇㄹㄴㅇㄹㄴㅇㄹㄴㄹㄴㄹㄴㅇㄹ</h5>
-    <div class="item-price">
-      <h5>₩ 200,000</h5>
-    </div>
-  </div>
-  <div class="item-text2">
-    <h5 class="item-sub-text">ㅁㄴㅇㅁㄴㅇㅁㄻㄴㄻㄻㄴㄻㄴㄻㄴㄻㄻㄹㄴㄹ</h5>
-    <div class="item-price">
-      <h5>₩ 200,000</h5>
-    </div>
-  </div>
-</div>
-
-<div class="item-list-wrap">
-  <div class="item">
-    <img src="../../../resources/img/banner1.png">
-  </div>
-  <div class="item">
-    <img src="../../../resources/img/banner2.png">
-  </div>
-  <div class="item">
-    <img src="../../../resources/img/banner1.png">
-  </div>
-  <div class="item">
-    <img src="../../../resources/img/banner2.png">
-  </div>
-</div>
-
-<div class="item-list-text-wrap">
-  <div class="item-text">
-    <h4>피아노1</h4>
-  </div>
-  <div class="item-text">
-    <h4>피아노2</h4>
-  </div>
-  <div class="item-text">
-    <h4>피아노3</h4>
-  </div>
-  <div class="item-text">
-    <h4>피아노4</h4>
-  </div>
-</div>
-
-<div class="item-list-text-wrap">
-  <div class="item-text2">
-    <h5 class="item-sub-text">ㄴㅇㄹㄴㅇㄹㄴㄷㄹㄴㄹㄴㄷㄹㄴㄹㄴㄷㄹㄴㅇㄹㄴㄷㄹㄴㄷㄹ</h5>
-    <div class="item-price">
-      <h5>₩ 200,000</h5>
-    </div>
-  </div>
-  <div class="item-text2">
-    <h5 class="item-sub-text">ㄴㅇㄹㄴㅇㄹㄴㅇㄹㅇㄴㄹㄴㅇㄹㄴㅇㄹ</h5>
-    <div class="item-price">
-      <h5>₩ 200,000</h5>
-    </div>
-  </div>
-  <div class="item-text2">
-    <h5 class="item-sub-text">ㄴㅇㄹㄴㅇㄹㄴㅇㄹㄴㅇㄹㄴㄹㄴㄹㄴㅇㄹ</h5>
-    <div class="item-price">
-      <h5>₩ 200,000</h5>
-    </div>
-  </div>
-  <div class="item-text2">
-    <h5 class="item-sub-text">ㅁㄴㅇㅁㄴㅇㅁㄻㄴㄻㄻㄴㄻㄴㄻㄴㄻㄻㄹㄴㄹ</h5>
-    <div class="item-price">
-      <h5>₩ 200,000</h5>
-    </div>
-  </div>
-</div>
 </body>
 
 <script>
