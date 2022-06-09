@@ -26,7 +26,7 @@ public class BoardService {
     boardRepository.save(boardDTO);
   }
 
-  private static final int PAGE_LIMIT = 5;
+  private static final int PAGE_LIMIT = 7;
   private static final int BLOCK_LIMIT = 3;
 
   public List<BoardDTO> findAll(int page) {

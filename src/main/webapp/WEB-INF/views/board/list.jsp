@@ -69,11 +69,46 @@
 
   <div class="text-center">
     <ul class="pagination">
-      <li><a href="#">이전</a></li>
-      <li><a href="#">1</a></li>
-      <li><a href="#">2</a></li>
-      <li><a href="#">3</a></li>
-      <li><a href="#">다음</a></li>
+      <c:choose>
+        <c:when test="${paging.page<=1}">
+          <li class="page-item disabled">
+            <a class="page-link"><</a>
+          </li>
+        </c:when>
+        <c:otherwise>
+          <li class="page-item">
+            <a class="page-link" href="${pageContext.request.contextPath}/board/list?page=${paging.page-1}"><</a>
+          </li>
+        </c:otherwise>
+      </c:choose>
+
+      <c:forEach var="i" begin="${paging.startPage}" end="${paging.endPage}" step="1">
+        <c:choose>
+          <c:when test="${paging.page eq i}">
+            <li class="page-item active">
+              <a class="page-link">${i}</a>
+            </li>
+          </c:when>
+          <c:otherwise>
+            <li class="page-item">
+              <a class="page-link" href="${pageContext.request.contextPath}/board/list?page=${i}">${i}</a>
+            </li>
+          </c:otherwise>
+        </c:choose>
+      </c:forEach>
+
+      <c:choose>
+        <c:when test="${paging.page>=paging.endPage}">
+          <li class="page-item disabled">
+            <a class="page-link">></a>
+          </li>
+        </c:when>
+        <c:otherwise>
+          <li class="page-item">
+            <a class="page-link" href="${pageContext.request.contextPath}/board/list?id=${paging.page+1}">></a>
+          </li>
+        </c:otherwise>
+      </c:choose>
     </ul>
   </div>
 </div>

@@ -16,6 +16,7 @@ public class ProductDTO {
   private String productContents;
   private Integer productPrice;
   private Integer productStock;
-  private String productImageName;
+  private String productMainImageName;
+  private String productContentsImageName;
   private List<MultipartFile> productImage;
 }
