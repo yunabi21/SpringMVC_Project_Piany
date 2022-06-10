@@ -16,6 +16,7 @@
 
   <link rel="stylesheet" href="../../../resources/css/product/list.css">
   <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css">
+  <script src="../../../resources/js/jquery.js"></script>
 </head>
 <body>
 <jsp:include page="../layout/header.jsp" />
@@ -36,27 +37,29 @@
       <div class="card">
         <img src="/upload/product/${product.productImageName}" alt="..">
         <div class="card-body">
-          <h5 class="card-title">${product.productName}</h5>
-          <p class="card-text">${product.productContents}</p>
-          <li class="align-bottom item-price">₩ ${product.productPrice}</li>
+          <div class="product-name-wrap">
+            <h5 class="card-title">${product.productName}</h5>
+          </div>
+          <div class="contents-wrap">
+            <p class="card-text">${product.productContents}</p>
+          </div>
+          <div class="item-price-wrap">
+            <li class="item-price">₩</li><li id="item-price${product.id}" class="item-price"> ${product.productPrice}</li>
+          </div>
         </div>
       </div>
     </div>
   </c:forEach>
 </div>
-
-
 </body>
-
 <script>
-  const wrapOver = () => {
-    const wrap = document.getElementById("search-icon-wrap");
-    wrap.style.backgroundColor = "#eaeaea";
-  }
+  $(document).ready(function () {
+    const productList = '${productList}';
 
-  const wrapLeave = () => {
-    const wrap = document.getElementById("search-icon-wrap");
-    wrap.style.backgroundColor = "#f5f5f5";
-  }
+    for (let i in productList) {
+      let itemPrice = document.getElementById("item-price${productList.get(0).productPrice}");
+      console.log(itemPrice);
+    }
+  });
 </script>
 </html>

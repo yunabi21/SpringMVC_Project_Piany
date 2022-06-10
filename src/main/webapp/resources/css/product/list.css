@@ -13,7 +13,7 @@ body {
 
 .item-list-title {
   text-align: center;
-  margin-top: 10px;
+  margin-top: 40px;
 }
 
 .item-list-title h2 {
@@ -34,11 +34,27 @@ body {
   font-size: 14px;
 }
 
+.contents-wrap {
+  height: 90px;
+}
+
+.contents-wrap p {
+  font-size: 14px;
+}
+
 .item-price {
   letter-spacing: 0.1rem;
   color: #222;
   list-style: none;
+}
+
+.item-price-wrap {
   margin-top: auto;
+  display: flex;
+}
+
+#item-price {
+  margin-left: 5px;
 }
 
 .view-more-a {
@@ -62,11 +78,18 @@ body {
 
 .card img {
   padding: 2px;
-  width: 240px;
+  width: 274px;
   height: 240px;
+  border-bottom: 1px solid #eaedef;
+}
+
+.card img:hover {
+  opacity: 0.4;
+  filter: alpha(opacity=40);
 }
 
 .list-container {
   margin-left: 22% !important;
   width: 1200px;
+  margin-bottom: 40px;
 }
