@@ -34,6 +34,8 @@
   <button class="btn2">2</button>
   <button class="btn3">3</button>
 </div>
+
+<jsp:include page="layout/footer.jsp" />
 </body>
 <script>
   document.querySelector('.btn1').addEventListener('click', function () {

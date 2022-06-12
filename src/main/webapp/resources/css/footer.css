@@ -1,0 +1,42 @@
+.blind {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: -9999em;
+}
+
+#footer {
+  width: 100%;
+  margin-top: 40px;
+  border-top: 1px solid #e5e5e5;
+}
+
+#footer .btm_logo {
+  float: left;
+  margin: 35px 0 35px 40px;
+  padding-right: 15px;
+  border-right: 1px solid #ccc;
+}
+
+#footer .btm_logo img {
+  width: 110px;
+  heighT: 100px;
+}
+
+#footer .btm_menu {
+  float: right;
+  margin-top: 34px;
+  margin-right: 40px;
+}
+
+#footer .btm_menu dd {
+  float: left;
+  margin-left: 10px;
+}
+
+#footer .copy {
+  padding-top: 40px;
+  text-align: center;
+  line-height: 20px;
+  letter-spacing: 0.1rem;
+}
