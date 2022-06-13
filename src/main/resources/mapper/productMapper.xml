@@ -24,4 +24,8 @@
     <select id="findByProductId" parameterType="Long" resultType="image">
         SELECT * FROM image_table WHERE productId = #{productId}
     </select>
+
+    <select id="findByProductIdForCart" parameterType="Long" resultType="product">
+        SELECT * FROM product_table WHERE id = #{id}
+    </select>
 </mapper>

@@ -5,6 +5,8 @@ import com.project.piany.repository.CartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CartService {
 
@@ -15,5 +17,10 @@ public class CartService {
     System.out.println("CartService.save");
 
     return cartRepository.save(cartDTO);
+  }
+
+  public List<CartDTO> findAll(String memberId) {
+    System.out.println("CartService.findAll");
+    return cartRepository.findAll(memberId);
   }
 }

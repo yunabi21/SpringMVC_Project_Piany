@@ -11,4 +11,8 @@
     <select id="duplicateCheck" parameterType="cart" resultType="cart">
         SELECT * FROM cart_table WHERE memberId = #{memberId} AND productId = #{productId}
     </select>
+
+    <select id="findAll" parameterType="String" resultType="cart">
+        SELECT * FROM cart_table WHERE memberId = #{memberId}
+    </select>
 </mapper>

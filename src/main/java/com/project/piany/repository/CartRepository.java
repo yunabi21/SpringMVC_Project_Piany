@@ -5,6 +5,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class CartRepository {
 
@@ -26,5 +28,10 @@ public class CartRepository {
   public CartDTO duplicateCheck(CartDTO cartDTO) {
     System.out.println("CartRepository.duplicateCheck");
     return sql.selectOne("Cart.duplicateCheck", cartDTO);
+  }
+
+  public List<CartDTO> findAll(String memberId) {
+    System.out.println("CartRepository.findAll");
+    return sql.selectList("Cart.findAll", memberId);
   }
 }

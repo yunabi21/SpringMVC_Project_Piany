@@ -12,7 +12,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>피아니 상품 상세 정보</title>
+  <title>피아니 상품 상세 정보 페이지</title>
 
   <link rel="stylesheet" href="../../../resources/css/product/detail.css" />
   <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" />

@@ -38,4 +38,9 @@ public class ProductRepository {
     System.out.println("ProductRepository.findByProductId");
     return sql.selectList("Product.findByProductId", id);
   }
+
+  public ProductDTO findByProductIdForCart(Long id) {
+    System.out.println("ProductRepository.findByProductIdForCart");
+    return sql.selectOne("Product.findByProductIdForCart", id);
+  }
 }

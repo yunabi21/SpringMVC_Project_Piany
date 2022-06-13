@@ -63,4 +63,9 @@ public class ProductService {
     System.out.println("ProductService.findByProductId");
     return productRepository.findByProductId(id);
   }
+
+  public ProductDTO findByProductIdForCart(Long id) {
+    System.out.println("ProductService.findByProductIdForCart");
+    return productRepository.findByProductIdForCart(id);
+  }
 }
