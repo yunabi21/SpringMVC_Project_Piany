@@ -131,6 +131,7 @@
     </div>
   </div>
 </main>
+<jsp:include page="../layout/footer.jsp" />
 </body>
 <script>
   const listBTN = () => {

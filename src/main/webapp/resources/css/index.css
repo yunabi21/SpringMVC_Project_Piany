@@ -1,20 +1,18 @@
-
-.slide-container-wrap {
+.slider{
+  width: 1260px;
+  height: 300px;
   overflow: hidden;
-  margin-left: 14.4%;
+  margin: 0 18.5%;
 }
 
-.slide-container {
+.slider ul {
   position: relative;
-  width: 300vw;
-  transition: transform 0.5s ease-in, 0.5s ease-out;
+  /* width: 3600px; */
+  height: 900px;
 }
 
-.slide-inner {
-  width: 100vw;
-  float: left;
-}
-
-.slide-inner img {
-  width: 70%;
+.slider ul li {
+  /* float: left; */
+  width: 1200px;
+  list-style: none;
 }

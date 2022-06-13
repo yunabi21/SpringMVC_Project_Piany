@@ -35,6 +35,7 @@
     <span id="result-msg" class="result-msg"></span>
   </div>
 </div>
+<jsp:include page="../layout/footer.jsp" />
 </body>
 <script>
   const passwordConfirm = () => {

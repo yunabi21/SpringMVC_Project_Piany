@@ -51,6 +51,7 @@
     </div>
   </c:forEach>
 </div>
+<jsp:include page="../layout/footer.jsp" />
 </body>
 <script>
   $(document).ready(function () {

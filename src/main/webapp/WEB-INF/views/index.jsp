@@ -12,27 +12,20 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="../../resources/css/index.css">
+  <script src="../../resources/js/jquery.js"></script>
+  <script src="../../resources/js/slider.js"></script>
 </head>
 <body>
 <jsp:include page="layout/header.jsp" />
 
-<div class="slide-container-wrap">
-  <div class="slide-container">
-    <div class="slide-inner">
-      <img src="../../resources/img/banner1.png" alt="">
-    </div>
-    <div class="slide-inner">
-      <img src="../../resources/img/banner2.png" alt="">
-    </div>
-    <div class="slide-inner">
-      <img src="../../resources/img/banner3.png" alt="">
-    </div>
-  </div>
-
-  <button class="btn1">1</button>
-  <button class="btn2">2</button>
-  <button class="btn3">3</button>
+<div class="slider">
+  <ul class="clearfix">
+    <li><a href="#"><img src="../../resources/img/land1.jpg" alt="Landscape Photo 1"></a></li>
+    <li><a href="#"><img src="../../resources/img/land2.jpg" alt="Landscape Photo 2"></a></li>
+    <li><a href="#"><img src="../../resources/img/land3.jpg" alt="Landscape Photo 3"></a></li>
+  </ul>
 </div>
 
 <jsp:include page="layout/footer.jsp" />

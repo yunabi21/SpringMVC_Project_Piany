@@ -53,6 +53,7 @@
   </div>
   </form>
 </main>
+<jsp:include page="../layout/footer.jsp" />
 </body>
 <script>
   const resize = (obj) => {
