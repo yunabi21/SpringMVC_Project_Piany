@@ -164,11 +164,7 @@
         const sessionId = '${sessionScope.loginMemberId}';
 
         for (let i in result) {
-          console.log(result[i]);
-
           let commentWriter = result[i].commentWriter;
-
-          console.log(sessionId / commentWriter);
 
           output += "<div class='list-comment'>";
 
@@ -187,7 +183,7 @@
           if (sessionId === commentWriter) {
             output += "<div class='comment-update-delete-button'>";
             output += "<div class='comment-update-button'>";
-            output += "<input type='button' onclick='commentUpdateBTN(" + result[i].id + "," + " " + result[i].commentContents + ")' value='수정'>";
+            output += "<input type='button' onclick='commentUpdateBTN(" + result[i].id + ")' value='수정'>";
             output += "</div>";
             output += "<div class='comment-delete-button'>";
             output += "<input type='button' onclick='commentDeleteBTN(" + result[i].id + ")' value='삭제'>";
@@ -228,16 +224,11 @@
               "boardId": boardId},
       dataType: 'json',
       success: function (result) {
-        console.log(result);
         let output = '';
         const sessionId = '${sessionScope.loginMemberId}';
 
         for (let i in result) {
-          console.log(result[i]);
-
           let commentWriter = result[i].commentWriter;
-
-          console.log(sessionId / commentWriter);
 
           output += "<div class='list-comment'>";
 
@@ -256,7 +247,7 @@
           if (sessionId === commentWriter) {
             output += "<div class='comment-update-delete-button'>";
             output += "<div class='comment-update-button'>";
-            output += "<input type='button' onclick='commentUpdateBTN(" + result[i].id + "," + " " + result[i].commentContents + ")' value='수정'>";
+            output += "<input type='button' onclick='commentUpdateBTN(" + result[i].id + ")' value='수정'>";
             output += "</div>";
             output += "<div class='comment-delete-button'>";
             output += "<input type='button' onclick='commentDeleteBTN(" + result[i].id + ")' value='삭제'>";
@@ -303,7 +294,7 @@
   const updateBTN2 = (id) => {
     const contents = document.getElementById("updateCommentContents").value;
     const boardId = '${board.id}';
-    console.log(id);
+
     $.ajax({
       url: '/comment/update?id=' + id,
       type: 'post',

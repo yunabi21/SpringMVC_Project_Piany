@@ -1,5 +1,6 @@
 package com.project.piany.repository;
 
+import com.project.piany.dto.ImageDTO;
 import com.project.piany.dto.ProductDTO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,5 +22,20 @@ public class ProductRepository {
   public List<ProductDTO> findAll() {
     System.out.println("ProductRepository.findAll");
     return sql.selectList("Product.findAll");
+  }
+
+  public ProductDTO findById(Long id) {
+    System.out.println("ProductRepository.findById");
+    return sql.selectOne("Product.findById", id);
+  }
+
+  public void saveImg(ImageDTO imageDTO) {
+    System.out.println("ProductRepository.saveImg");
+    sql.insert("Product.saveImg", imageDTO);
+  }
+
+  public List<ImageDTO> findByProductId(Long id) {
+    System.out.println("ProductRepository.findByProductId");
+    return sql.selectList("Product.findByProductId", id);
   }
 }

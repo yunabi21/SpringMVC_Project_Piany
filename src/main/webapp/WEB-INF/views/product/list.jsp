@@ -17,6 +17,8 @@
   <link rel="stylesheet" href="../../../resources/css/product/list.css">
   <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css">
   <script src="../../../resources/js/jquery.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/6d0fda0f7c.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <jsp:include page="../layout/header.jsp" />
@@ -35,7 +37,7 @@
   <c:forEach var="product" items="${productList}">
     <div class="col">
       <div class="card">
-        <img src="/upload/product/${product.productImageName}" alt="..">
+        <a href="${pageContext.request.contextPath}/product/detail?id=${product.id}"><img src="/upload/product/${product.productImageName}" alt=".."></a>
         <div class="card-body">
           <div class="product-name-wrap">
             <h5 class="card-title">${product.productName}</h5>
@@ -44,7 +46,11 @@
             <p class="card-text">${product.productContents}</p>
           </div>
           <div class="item-price-wrap">
-            <li class="item-price">₩</li><li id="item-price${product.id}" class="item-price"> ${product.productPrice}</li>
+            <li class="item-price">₩</li><li id="item-price${product.id}" class="item-price2"> ${product.productPrice}</li>
+<%--            <a id="iconHover${product.id}" class="icon-hover" onmouseover="iconOver(${product.id})" onmouseleave="iconLeave(${product.id})"--%>
+<%--               href="${pageContext.request.contextPath}/cart/save?productId=${product.id}">--%>
+<%--              <i class="fa-regular fa-heart ms-2 heart-icon"></i>--%>
+<%--            </a>--%>
           </div>
         </div>
       </div>
@@ -54,13 +60,14 @@
 <jsp:include page="../layout/footer.jsp" />
 </body>
 <script>
-  $(document).ready(function () {
-    const productList = '${productList}';
+  const iconOver = (productId) => {
+    const icon = document.getElementById('iconHover' + productId);
+    icon.innerHTML = "<i class='fa-solid fa-heart ms-2 heart-icon'></i>";
+  }
 
-    for (let i in productList) {
-      let itemPrice = document.getElementById("item-price${productList.get(0).productPrice}");
-      console.log(itemPrice);
-    }
-  });
+  const iconLeave = (productId) => {
+    const icon = document.getElementById('iconHover' + productId);
+    icon.innerHTML = "<i class='fa-regular fa-heart ms-2 heart-icon'></i>";
+  }
 </script>
 </html>

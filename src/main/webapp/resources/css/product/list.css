@@ -43,12 +43,20 @@ body {
 }
 
 .item-price {
+  width: 20px;
+  color: #222;
+  list-style: none;
+}
+
+.item-price2 {
+  width: 200px;
   letter-spacing: 0.1rem;
   color: #222;
   list-style: none;
 }
 
 .item-price-wrap {
+  width: 260px;
   margin-top: auto;
   display: flex;
 }
@@ -92,4 +100,15 @@ body {
   margin-left: 22% !important;
   width: 1200px;
   margin-bottom: 40px;
+}
+
+.list-container a {
+  margin: 0;
+  padding: 0;
+}
+
+.heart-icon {
+  margin-left: auto;
+  color: #e86159;
+  margin-top: 4px;
 }

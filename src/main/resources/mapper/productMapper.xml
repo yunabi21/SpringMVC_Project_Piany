@@ -11,4 +11,17 @@
     <select id="findAll" resultType="product">
         SELECT * FROM product_table
     </select>
+
+    <select id="findById" parameterType="Long" resultType="product">
+        SELECT * FROM product_table WHERE id = #{id}
+    </select>
+
+    <insert id="saveImg" parameterType="image">
+        INSERT INTO image_table (productId, imageFileName)
+        VALUES (#{productId}, #{imageFileName})
+    </insert>
+
+    <select id="findByProductId" parameterType="Long" resultType="image">
+        SELECT * FROM image_table WHERE productId = #{productId}
+    </select>
 </mapper>

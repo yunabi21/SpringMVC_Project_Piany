@@ -1,5 +1,6 @@
 package com.project.piany.service;
 
+import com.project.piany.dto.ImageDTO;
 import com.project.piany.dto.ProductDTO;
 import com.project.piany.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,5 +36,31 @@ public class ProductService {
   public List<ProductDTO> findAll() {
     System.out.println("ProductService.findAll");
     return productRepository.findAll();
+  }
+
+  public ProductDTO findById(Long id) {
+    System.out.println("ProductService.findById");
+    return productRepository.findById(id);
+  }
+
+  public void saveImg(ImageDTO imageDTO) throws IOException {
+    System.out.println("ProductService.saveImg");
+
+    MultipartFile productDetailImage = imageDTO.getImageFile();
+    String productDetailImageName = productDetailImage.getOriginalFilename();
+    productDetailImageName = System.currentTimeMillis() + "-" + productDetailImageName;
+    String savePath = "D:\\project_img\\product\\" + productDetailImageName;
+
+    if (!productDetailImage.isEmpty()) {
+      imageDTO.setImageFileName(productDetailImageName);
+      productDetailImage.transferTo(new File(savePath));
+    }
+
+    productRepository.saveImg(imageDTO);
+  }
+
+  public List<ImageDTO> findByProductId(Long id) {
+    System.out.println("ProductService.findByProductId");
+    return productRepository.findByProductId(id);
   }
 }

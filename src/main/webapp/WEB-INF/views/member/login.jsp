@@ -14,6 +14,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="../../../resources/css/member/login.css">
+  <script src="../../../resources/js/jquery.js"></script>
 </head>
 <body>
 <jsp:include page="../layout/header.jsp" />
@@ -70,5 +71,10 @@
   const findMemberPw = () => {
     window.open('/member/findMemberPw', 'findMemberPw', 'width=400, height=400, scrollbars=yes, resizable=no');
   }
+
+  $(function () {
+    const inputId = document.getElementById("input-memberId");
+    inputId.focus();
+  });
 </script>
 </html>
