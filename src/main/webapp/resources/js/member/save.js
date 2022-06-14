@@ -40,5 +40,16 @@ function addressAPI() {
 }
 
 const submit = () => {
+  const inputMemberId = document.getElementById("input-memberId").value;
+  const resultMemberId = document.getElementById("id-result");
+
+  const inputMemberPassword = document.getElementById("input-memberPassword").value;
+  const resultMemberPassword = document.getElementById("pw-result");
+
+  const inputMemberPasswordAgain = document.getElementById("input-memberPassword-again").value;
+  const resultMemberPasswordAgain = document.getElementById("pw-again-result");
+
+  const
+
   memberSaveForm.submit();
 }

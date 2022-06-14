@@ -73,4 +73,17 @@ public class MemberService {
     System.out.println("MemberService.update");
     memberRepository.update(memberDTO);
   }
+
+  public String duplicateCheck(String memberId) {
+    System.out.println("MemberService.duplicateCheck");
+
+    MemberDTO memberDTO = memberRepository.duplicateCheck(memberId);
+    String result;
+    if (memberDTO != null) {
+      result = "no";
+    } else {
+      result = "ok";
+    }
+    return result;
+  }
 }

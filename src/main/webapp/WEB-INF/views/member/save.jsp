@@ -15,6 +15,7 @@
 
   <link rel="stylesheet" href="../../../resources/css/member/saveForm.css">
   <script src="../../../resources/js/member/save.js"></script>
+  <script src="../../../resources/js/jquery.js"></script>
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 <body>
@@ -34,7 +35,7 @@
           <span class="input-result" id="id-result"></span>
         </div>
         <div class="input-memberId">
-          <input type="text" name="memberId" class="input-memberId" id="input-memberId" required>
+          <input type="text" onblur="duplicateCheck()" name="memberId" class="input-memberId" id="input-memberId" required>
         </div>
 
         <div class="input-memberPassword-wrap">
@@ -111,7 +112,7 @@
         </div>
 
         <div class="btn-submit-form">
-          <input type="button" onclick="submit()" value="가입하기">
+          <input type="button" id="submitBTN" onclick="submit()" value="가입하기">
         </div>
       </div>
     </div>
@@ -120,5 +121,34 @@
 </main>
 <jsp:include page="../layout/footer.jsp" />
 </body>
+<script>
+  const duplicateCheck = () => {
+    const memberId = document.getElementById("input-memberId").value;
+    const resultSpan = document.getElementById("id-result");
+    const button = document.getElementById("submitBTN");
 
+    $.ajax({
+      url: '/member/duplicateCheck',
+      type: 'post',
+      data: {"memberId": memberId},
+      dataType: "text",
+      success: function (result) {
+        console.log(result);
+
+        if (result === 'ok') {
+          resultSpan.innerHTML = '사용 가능한 아이디 입니다.';
+          resultSpan.style.color = '#36aa36';
+          button.removeAttribute("disabled");
+        } else {
+          resultSpan.innerHTML = '이미 다른 사용자가 사용중인 아이디입니다.';
+          resultSpan.style.color = '#aa3636';
+          button.disabled = 'true';
+        }
+      },
+      err: function () {
+        alert('에러');
+      }
+    });
+  }
+</script>
 </html>

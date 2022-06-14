@@ -50,4 +50,9 @@ public class MemberRepository {
     System.out.println("MemberRepository.update");
     sql.update("Member.update", memberDTO);
   }
+
+  public MemberDTO duplicateCheck(String memberId) {
+    System.out.println("MemberRepository.duplicateCheck");
+    return sql.selectOne("Member.duplicateCheck", memberId);
+  }
 }

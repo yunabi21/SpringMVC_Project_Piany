@@ -39,5 +39,9 @@
                                 memberAddress2 = #{memberAddress2}
         WHERE id = #{id}
     </update>
+
+    <select id="duplicateCheck" parameterType="String" resultType="member">
+        SELECT * FROM member_table WHERE memberId = #{memberId}
+    </select>
 </mapper>
 

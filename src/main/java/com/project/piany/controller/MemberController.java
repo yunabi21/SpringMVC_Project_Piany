@@ -158,4 +158,11 @@ public class MemberController {
     memberService.update(memberDTO);
     return "redirect:/member/detail?id=" + memberDTO.getId();
   }
+
+  @PostMapping("/duplicateCheck")
+  public @ResponseBody String duplicateCheck(@RequestParam("memberId") String memberId) {
+    System.out.println("MemberController.duplicateCheck");
+
+    return memberService.duplicateCheck(memberId);
+  }
 }
