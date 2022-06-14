@@ -15,12 +15,22 @@ public class CartService {
 
   public String save(CartDTO cartDTO) {
     System.out.println("CartService.save");
-
     return cartRepository.save(cartDTO);
   }
 
   public List<CartDTO> findAll(String memberId) {
     System.out.println("CartService.findAll");
     return cartRepository.findAll(memberId);
+  }
+
+  public String delete(CartDTO cartDTO) {
+    System.out.println("CartService.delete");
+
+    int result = cartRepository.delete(cartDTO);
+    if (result > 0) {
+      return "ok";
+    } else {
+      return "no";
+    }
   }
 }

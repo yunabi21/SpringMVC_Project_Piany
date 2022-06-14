@@ -34,22 +34,19 @@ public class CartController {
     System.out.println("CartController.list");
 
     List<CartDTO> cartDTOList = cartService.findAll(memberId);
-
     List<ProductDTO> productDTOList = new ArrayList<>();
 
     for (CartDTO cartDTO : cartDTOList) {
       productDTOList.add(productService.findByProductIdForCart(cartDTO.getProductId()));
     }
 
-    for (int i=0; i<cartDTOList.size(); i++) {
-      Long productId = cartDTOList.get(i).getProductId();
-
-      ProductDTO productDTO = productService.findByProductIdForCart(productId);
-
-      productDTOList.add(productDTO);
-    }
-
     model.addAttribute("productList", productDTOList);
     return "/cart/list";
+  }
+
+  @GetMapping("/delete")
+  public @ResponseBody String delete(@ModelAttribute CartDTO cartDTO) {
+    System.out.println("CartController.delete");
+    return cartService.delete(cartDTO);
   }
 }

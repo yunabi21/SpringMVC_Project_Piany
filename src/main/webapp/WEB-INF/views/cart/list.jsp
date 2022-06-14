@@ -39,6 +39,7 @@
           <th class="productPrice">가격</th>
           <th class="productQuantity">수량</th>
           <th class="productPriceToPay">주문 금액</th>
+          <th class="productDelete">삭제</th>
         </tr>
         </thead>
         <tbody>
@@ -57,17 +58,18 @@
               <option value="5">5</option>
             </select></td>
             <td><span class="won-symbol">₩ </span><span id="productPriceToPay" class="product-price-to-pay"></span></td>
+            <td><input type="button" class="btn btn-outline-dark cancel-button" onclick="deleteProduct(${product.id})" value="삭제하기"></td>
           </tr>
         </c:forEach>
         </tbody>
       </table>
-      <div class="price-to-pay-container">
-        <div class="price-to-pay-wrap">
-          <span class="price-text">총 금액 : </span>
-          <span class="won-symbol2">₩ </span>
-          <span id="priceToPay" class="price-to-pay"></span>
-        </div>
-      </div>
+<%--      <div class="price-to-pay-container">--%>
+<%--        <div class="price-to-pay-wrap">--%>
+<%--          <span class="price-text">총 금액 : </span>--%>
+<%--          <span class="won-symbol2">₩ </span>--%>
+<%--          <span id="priceToPay" class="price-to-pay"></span>--%>
+<%--        </div>--%>
+<%--      </div>--%>
       <div class="button-container">
         <div class="pay-button-wrap">
           <input type="button" class="btn btn-dark pay-button" value="결제하기">
@@ -88,25 +90,47 @@
   $('.form-select').change(function (){
     let productPrice = parseInt(document.getElementById("productPrice").innerHTML);
     let quantity = parseInt($('.form-select').val());
-    let resultPriceVal = parseInt(document.getElementById("productPriceToPay").value);
-    let sumPriceVal = parseInt(document.getElementById("priceToPay").innerHTML);
+    // let resultPriceVal = parseInt(document.getElementById("productPriceToPay").value);
+    // let sumPriceVal = parseInt(document.getElementById("priceToPay").innerHTML);
 
     let resultPrice = document.getElementById("productPriceToPay");
-    let sumPrice = document.getElementById("priceToPay");
+    // let sumPrice = document.getElementById("priceToPay");
 
     resultPrice.innerHTML = productPrice * quantity;
-    let sumPrice2 = sumPriceVal + resultPriceVal;
-    console.log(sumPrice2);
+    // let sumPrice2 = sumPriceVal + resultPriceVal;
+    // console.log(sumPrice2);
 
 
     let symbol = document.querySelector('.won-symbol');
-    let symbol2 = document.querySelector('.won-symbol2');
+    // let symbol2 = document.querySelector('.won-symbol2');
     symbol.style.display = 'inline';
-    symbol2.style.display = 'inline';
+    // symbol2.style.display = 'inline';
   });
 
   const productDetail = (id) => {
     location.href = '/product/detail?id=' + id;
+  }
+
+  const deleteProduct = (id) => {
+    const memberId = '${sessionScope.loginMemberId}';
+
+    $.ajax({
+      type: 'get',
+      url: '/cart/delete',
+      data: {"productId": id,
+              "memberId": memberId},
+      dataType: 'text',
+      success: function (result) {
+        console.log(result);
+
+        if (result === 'ok') {
+          alert('장바구니에서 삭제 했어요!');
+          location.href = '/cart/list?memberId=' + memberId;
+        } else {
+          alert('삭제 할 상품이 없어요!');
+        }
+      }
+    });
   }
 </script>
 </html>

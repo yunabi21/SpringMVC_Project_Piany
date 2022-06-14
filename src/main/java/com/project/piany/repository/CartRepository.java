@@ -34,4 +34,9 @@ public class CartRepository {
     System.out.println("CartRepository.findAll");
     return sql.selectList("Cart.findAll", memberId);
   }
+
+  public int delete(CartDTO cartDTO) {
+    System.out.println("CartRepository.delete");
+    return sql.delete("Cart.delete", cartDTO);
+  }
 }

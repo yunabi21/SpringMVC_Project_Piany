@@ -15,4 +15,8 @@
     <select id="findAll" parameterType="String" resultType="cart">
         SELECT * FROM cart_table WHERE memberId = #{memberId}
     </select>
+
+    <delete id="delete" parameterType="cart">
+        DELETE FROM cart_table WHERE memberId = #{memberId} AND productId = #{productId}
+    </delete>
 </mapper>
