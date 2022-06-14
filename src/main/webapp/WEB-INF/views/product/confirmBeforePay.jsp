@@ -160,6 +160,29 @@
             }
           }
         });
+
+        const quantity = '${quantity}';
+
+        $.ajax({
+          url: '/product/updateQuantity',
+          type: 'post',
+          async: false,
+          data: {"productId": productId,
+                  "productQuantity": quantity},
+          dataType: 'text',
+          success: function (result) {
+            console.log(result);
+
+            if (result === 'ok') {
+              alert('상품의 재고가 업데이트 되었어요!');
+            } else {
+              alert();
+            }
+          },
+          err: function () {
+            alert('실패');
+          }
+        })
       } else {
         let msg = '결제 실패';
         msg += '에러내용 : ' + rsp.error_msg;

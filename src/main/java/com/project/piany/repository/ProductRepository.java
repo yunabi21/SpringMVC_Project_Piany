@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public class ProductRepository {
@@ -42,5 +43,11 @@ public class ProductRepository {
   public ProductDTO findByProductIdForCart(Long id) {
     System.out.println("ProductRepository.findByProductIdForCart");
     return sql.selectOne("Product.findByProductIdForCart", id);
+  }
+
+
+  public int updateQuantity(Map<String, Long> updateParam) {
+    System.out.println("ProductRepository.updateQuantity");
+    return sql.update("Product.updateQuantity", updateParam);
   }
 }

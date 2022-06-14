@@ -92,4 +92,12 @@ public class ProductController {
     model.addAttribute("quantity", productQuantity);
     return "/product/confirmBeforePay";
   }
+
+  @PostMapping("/updateQuantity")
+  public @ResponseBody String updateQuantity(@RequestParam("productId") Long productId,
+                                             @RequestParam("productQuantity") Integer productQuantity) {
+    System.out.println("ProductController.updateQuantity");
+
+    return productService.updateQuantity(productId, productQuantity);
+  }
 }

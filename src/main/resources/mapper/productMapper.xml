@@ -28,4 +28,9 @@
     <select id="findByProductIdForCart" parameterType="Long" resultType="product">
         SELECT * FROM product_table WHERE id = #{id}
     </select>
+
+    <update id="updateQuantity" parameterType="java.util.HashMap">
+        UPDATE product_table SET productStock = productStock - #{productQuantity}
+        WHERE id = #{productId}
+    </update>
 </mapper>

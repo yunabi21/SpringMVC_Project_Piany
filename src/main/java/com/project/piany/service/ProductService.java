@@ -9,7 +9,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class ProductService {
@@ -67,5 +69,19 @@ public class ProductService {
   public ProductDTO findByProductIdForCart(Long id) {
     System.out.println("ProductService.findByProductIdForCart");
     return productRepository.findByProductIdForCart(id);
+  }
+
+  public String updateQuantity(Long productId, Integer productQuantity) {
+    System.out.println("ProductService.updateQuantity");
+
+    Map<String, Long> updateParam = new HashMap<>();
+    updateParam.put("productId", productId);
+    updateParam.put("productQuantity", Long.valueOf(productQuantity));
+    int result = productRepository.updateQuantity(updateParam);
+    if (result > 0) {
+      return "ok";
+    } else {
+      return "no";
+    }
   }
 }
