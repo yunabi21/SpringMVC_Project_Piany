@@ -12,7 +12,7 @@ import java.sql.Timestamp;
 public class HistoryDTO {
   private Long id;
   private String memberId;
-  private Long productId;
+  private String productName;
   private Integer productQuantity;
   private Integer productPrice;
   private Timestamp historyCreatedDate;

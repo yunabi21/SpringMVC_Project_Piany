@@ -9,5 +9,6 @@
         <typeAlias type="com.project.piany.dto.ProductDTO" alias="product" />
         <typeAlias type="com.project.piany.dto.ImageDTO" alias="image" />
         <typeAlias type="com.project.piany.dto.CartDTO" alias="cart" />
+        <typeAlias type="com.project.piany.dto.HistoryDTO" alias="history" />
     </typeAliases>
 </configuration>

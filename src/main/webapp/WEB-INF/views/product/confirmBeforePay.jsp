@@ -108,8 +108,37 @@
       buyer_postcode : '${member.memberZipCode}',
       buyer_addr : '${member.memberAddress1}' + '${member.memberAddress2}',
     }, function (rsp) {
+      console.log(rsp)
       if (rsp.success) {
-        alert('완료 -> imp_uid : ' + rsp.imp_uid + '/ merchant_uid(orderKey) : ' + rsp.merchant_uid)
+        alert('결제가 완료 되었어요!');
+
+        let result = {
+          "memberId" : rsp.buyer_name,
+          "productName" : rsp.name,
+          "productQuantity" : ${quantity},
+          "productPrice" : rsp.paid_amount / ${quantity}
+        }
+
+        $.ajax({
+          url: '/history/save',
+          type: 'post',
+          async: false,
+          data: result,
+          dataType: 'text',
+          success: function (result) {
+            console.log(result);
+
+            if (result === 'ok') {
+              alert('구매 내역에 저장했어요!');
+            } else {
+              alert('구매 내역에 저장이 안돼요!');
+            }
+          },
+          err: function () {
+            alert('실패');
+          }
+
+        });
       } else {
         let msg = '결제 실패';
         msg += '에러내용 : ' + rsp.error_msg;
