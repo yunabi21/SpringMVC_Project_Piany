@@ -29,14 +29,14 @@ public class CartService {
     CartDTO cartDTO1 = cartRepository.duplicateCheck(cartDTO);
 
     if (cartDTO1 != null) {
-      return "duple";
-    } else {
       int result = cartRepository.delete(cartDTO);
       if (result > 0) {
         return "ok";
       } else {
         return "no";
       }
+    } else {
+      return "duple";
     }
   }
 }
