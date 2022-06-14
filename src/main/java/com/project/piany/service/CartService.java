@@ -26,11 +26,17 @@ public class CartService {
   public String delete(CartDTO cartDTO) {
     System.out.println("CartService.delete");
 
-    int result = cartRepository.delete(cartDTO);
-    if (result > 0) {
-      return "ok";
+    CartDTO cartDTO1 = cartRepository.duplicateCheck(cartDTO);
+
+    if (cartDTO1 != null) {
+      return "duple";
     } else {
-      return "no";
+      int result = cartRepository.delete(cartDTO);
+      if (result > 0) {
+        return "ok";
+      } else {
+        return "no";
+      }
     }
   }
 }

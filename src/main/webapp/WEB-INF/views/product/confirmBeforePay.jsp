@@ -137,7 +137,28 @@
           err: function () {
             alert('실패');
           }
+        });
 
+        const productId = '${product.id}';
+
+        $.ajax({
+          url: '/cart/delete',
+          type: 'get',
+          async: false,
+          data: {"memberId": rsp.buyer_name,
+                  "productId": productId},
+          dataType: 'text',
+          success: function (result) {
+            console.log (result);
+
+            if (result === 'ok') {
+              alert('장바구니에서 구매한 상품을 삭제 했어요!');
+            } else if (result === 'duple') {
+              alert('장바구니에 구매한 상품이 애초에 없어요!');
+            } else {
+              alert('장바구니에서 삭제가 안돼요!');
+            }
+          }
         });
       } else {
         let msg = '결제 실패';
