@@ -71,7 +71,7 @@
         </select>
       </div>
       <div class="purchase-wrap col-12 col-lg">
-        <button type="submit" class="btn w-100 btn-dark mb-2">구매하기
+        <button onclick="productPay(${product.id})" class="btn w-100 btn-dark mb-2">구매하기
           <i class="fa fa-shopping-cart ms-2"></i>
         </button>
       </div>
@@ -102,6 +102,13 @@
 <script>
   const detailImgAdd = (id) => {
     location.href = '/product/saveImg?id=' + id;
+  }
+
+  const productPay = (id) => {
+    const memberId = '${sessionScope.loginMemberId}';
+    const productQuantity = document.querySelector('.form-select').value;
+
+    location.href = '/product/confirmBeforePay?memberId=' + memberId + '&id=' + id + '&productQuantity=' + productQuantity;
   }
 
   const cartSave = () => {

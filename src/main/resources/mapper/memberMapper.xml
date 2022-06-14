@@ -43,5 +43,9 @@
     <select id="duplicateCheck" parameterType="String" resultType="member">
         SELECT * FROM member_table WHERE memberId = #{memberId}
     </select>
+
+    <select id="findByMemberId" parameterType="String" resultType="member">
+        SELECT * FROM member_table WHERE memberId = #{memberId}
+    </select>
 </mapper>
 

@@ -1,0 +1,62 @@
+.pay-container {
+  width: 50%;
+  margin-left: 25%;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #aaa;
+}
+
+.pay-container .pay-title {
+  border-bottom: 1px solid #aaa;
+  margin-bottom: 40px;
+}
+
+.pay-container, .pay-title h2 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.product-detail-to-pay {
+  margin-bottom: 20px;
+  margin-left: 40px;
+}
+
+.product-detail-to-pay img {
+  width: 100px;
+  height: 100px;
+}
+
+.product-detail-to-pay .product-detail-span {
+  font-size: 20px;
+  font-weight: 300;
+  color: #444;
+}
+
+.product {
+  display: flex;
+}
+
+.product-detail-to-pay .product-name {
+  width: 200px;
+}
+
+.product-detail-value {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.won-symbol {
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.price {
+  letter-spacing: 0.1rem;
+}
+
+.payBTN {
+  width: 250px;
+  height: 50px;
+  margin-top: 20px;
+  margin-left: 40px;
+  margin-bottom: 20px;
+}

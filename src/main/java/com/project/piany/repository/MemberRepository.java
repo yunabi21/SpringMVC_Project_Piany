@@ -55,4 +55,9 @@ public class MemberRepository {
     System.out.println("MemberRepository.duplicateCheck");
     return sql.selectOne("Member.duplicateCheck", memberId);
   }
+
+  public MemberDTO findByMemberId(String memberId) {
+    System.out.println("MemberRepository.findByMemberId");
+    return sql.selectOne("Member.findByMemberId", memberId);
+  }
 }

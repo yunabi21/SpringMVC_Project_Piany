@@ -86,4 +86,9 @@ public class MemberService {
     }
     return result;
   }
+
+  public MemberDTO findByMemberId(String memberId) {
+    System.out.println("MemberService.findByMemberId");
+    return memberRepository.findByMemberId(memberId);
+  }
 }

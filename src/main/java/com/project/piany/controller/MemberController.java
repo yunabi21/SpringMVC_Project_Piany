@@ -165,4 +165,10 @@ public class MemberController {
 
     return memberService.duplicateCheck(memberId);
   }
+
+  @PostMapping("/findByMemberId")
+  public @ResponseBody MemberDTO findByMemberId(@RequestParam("memberId") String memberId) {
+    System.out.println("MemberController.findByMemberId");
+    return memberService.findByMemberId(memberId);
+  }
 }

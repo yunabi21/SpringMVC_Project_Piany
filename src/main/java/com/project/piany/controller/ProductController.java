@@ -1,7 +1,9 @@
 package com.project.piany.controller;
 
 import com.project.piany.dto.ImageDTO;
+import com.project.piany.dto.MemberDTO;
 import com.project.piany.dto.ProductDTO;
+import com.project.piany.service.MemberService;
 import com.project.piany.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +19,9 @@ public class ProductController {
 
   @Autowired
   private ProductService productService;
+
+  @Autowired
+  private MemberService memberService;
 
   @GetMapping("/list")
   public String list(Model model) {
@@ -43,13 +48,16 @@ public class ProductController {
   }
 
   @GetMapping("/detail")
-  public String detail(@RequestParam("id") Long id, Model model) {
+  public String detail(@RequestParam("id") Long id,
+                       Model model) {
     System.out.println("ProductController.detail");
 
     ProductDTO productDTO = productService.findById(id);
     List<ImageDTO> imageDTOList = productService.findByProductId(id);
+
     model.addAttribute("product", productDTO);
     model.addAttribute("imageList", imageDTOList);
+
     return "/product/detail";
   }
 
@@ -67,5 +75,21 @@ public class ProductController {
 
     productService.saveImg(imageDTO);
     return "redirect:/product/detail?id=" + imageDTO.getProductId();
+  }
+
+  @GetMapping("/confirmBeforePay")
+  public String confirmBeforePay(@RequestParam("id") Long id,
+                                 @RequestParam("memberId") String memberId,
+                                 @RequestParam("productQuantity") int productQuantity,
+                                 Model model) {
+    System.out.println("ProductController.confirmBeforePay");
+
+    MemberDTO memberDTO = memberService.findByMemberId(memberId);
+    ProductDTO productDTO = productService.findById(id);
+
+    model.addAttribute("member", memberDTO);
+    model.addAttribute("product", productDTO);
+    model.addAttribute("quantity", productQuantity);
+    return "/product/confirmBeforePay";
   }
 }
