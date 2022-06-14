@@ -41,15 +41,24 @@ function addressAPI() {
 
 const submit = () => {
   const inputMemberId = document.getElementById("input-memberId").value;
-  const resultMemberId = document.getElementById("id-result");
 
   const inputMemberPassword = document.getElementById("input-memberPassword").value;
-  const resultMemberPassword = document.getElementById("pw-result");
 
   const inputMemberPasswordAgain = document.getElementById("input-memberPassword-again").value;
-  const resultMemberPasswordAgain = document.getElementById("pw-again-result");
 
-  const
+  const inputMemberName = document.getElementById("input-memberName").value;
 
-  memberSaveForm.submit();
+  const inputMemberZipcode = document.getElementById("memberZipCode").value;
+  const inputMemberAddress1 = document.getElementById("memberAddress1").value;
+  const inputMemberAddress2 = document.getElementById("memberAddress2").value;
+
+  if (inputMemberId === '' || inputMemberPassword === '' || inputMemberPasswordAgain === ''
+      || inputMemberName === '' || inputMemberZipcode === '' || inputMemberAddress1 === ''
+      || inputMemberAddress2 === '') {
+    alert('입력하지 않은 정보가 있어요!');
+    return false;
+  } else {
+    memberSaveForm.submit();
+  }
+
 }
