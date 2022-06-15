@@ -100,4 +100,12 @@ public class ProductController {
 
     return productService.updateQuantity(productId, productQuantity);
   }
+
+  @GetMapping("/delete")
+  public String delete(@RequestParam("id") Long id) {
+    System.out.println("ProductController.delete");
+
+    productService.delete(id);
+    return "redirect:/product/list";
+  }
 }

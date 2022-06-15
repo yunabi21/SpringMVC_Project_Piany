@@ -29,6 +29,7 @@
   <c:choose>
     <c:when test="${sessionScope.loginMemberId eq 'admin'}">
       <div class="product-detail-img-add">
+        <input type="button" class="btn btn-dark" onclick="productDelete(${product.id})" value="상품 삭제">
         <input type="button" class="btn btn-outline-dark" onclick="detailImgAdd(${product.id})" value="상세 사진 등록">
       </div>
     </c:when>
@@ -102,6 +103,10 @@
 <script>
   const detailImgAdd = (id) => {
     location.href = '/product/saveImg?id=' + id;
+  }
+
+  const productDelete = (id) => {
+    location.href = '/product/delete?id=' + id;
   }
 
   const productPay = (id) => {

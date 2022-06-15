@@ -50,4 +50,9 @@ public class ProductRepository {
     System.out.println("ProductRepository.updateQuantity");
     return sql.update("Product.updateQuantity", updateParam);
   }
+
+  public void delete(Long id) {
+    System.out.println("ProductRepository.delete");
+    sql.delete("Product.delete", id);
+  }
 }

@@ -84,4 +84,9 @@ public class ProductService {
       return "no";
     }
   }
+
+  public void delete(Long id) {
+    System.out.println("ProductService.delete");
+    productRepository.delete(id);
+  }
 }

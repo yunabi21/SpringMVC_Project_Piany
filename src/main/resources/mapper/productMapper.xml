@@ -33,4 +33,8 @@
         UPDATE product_table SET productStock = productStock - #{productQuantity}
         WHERE id = #{productId}
     </update>
+
+    <delete id="delete" parameterType="Long">
+        DELETE FROM product_table WHERE id = #{id}
+    </delete>
 </mapper>
