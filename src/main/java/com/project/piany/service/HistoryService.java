@@ -5,6 +5,8 @@ import com.project.piany.repository.HistoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class HistoryService {
 
@@ -20,5 +22,10 @@ public class HistoryService {
     } else {
       return "no";
     }
+  }
+
+  public List<HistoryDTO> list(String memberId) {
+    System.out.println("HistoryService.list");
+    return historyRepository.list(memberId);
   }
 }

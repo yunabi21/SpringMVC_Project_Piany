@@ -91,28 +91,27 @@ a:hover {
   margin-left: auto;
 }
 
-.shopping-cart-icon {
-  width: 32px;
-  height: 32px;
-  margin-right: 32px;
-}
-
-.shopping-cart-icon:hover {
-  filter: invert(64%) sepia(51%) saturate(6450%) hue-rotate(329deg) brightness(102%) contrast(83%);
-}
-
-.side-menu-text {
-  font-size: 14px;
-  font-weight: 600;
-}
-
+.shopping-cart-icon,
 .user-icon {
   width: 32px;
   height: 32px;
   margin-right: 32px;
 }
 
-.user-icon:hover {
+.order-list-icon {
+  width: 36px;
+  height: 36px;
+  margin-right: 32px;
+}
+
+.shopping-cart-icon:hover,
+.user-icon:hover,
+.order-list-icon:hover {
   filter: invert(64%) sepia(51%) saturate(6450%) hue-rotate(329deg) brightness(102%) contrast(83%);
+}
+
+.side-menu-text {
+  font-size: 14px;
+  font-weight: 600;
 }
 

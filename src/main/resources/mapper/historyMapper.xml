@@ -7,4 +7,8 @@
         INSERT INTO history_table (memberId, productName, productQuantity, productPrice, historyCreatedDate)
         VALUES (#{memberId}, #{productName}, #{productQuantity}, #{productPrice}, now())
     </insert>
+
+    <select id="list" parameterType="String" resultType="history">
+        SELECT * FROM history_table WHERE memberId = #{memberId} ORDER BY id DESC
+    </select>
 </mapper>

@@ -47,15 +47,14 @@
     <c:choose>
       <c:when test="${sessionScope.loginId != null}">
         <div class="header-side-menu">
-          <a href="${pageContext.request.contextPath}/member/detail?id=${sessionScope.loginId}"><img class="user-icon" alt="" src="../../../resources/img/user.png"></a>
           <a href="${pageContext.request.contextPath}/cart/list?memberId=${sessionScope.loginMemberId}"><img class="shopping-cart-icon" alt="" src="../../../resources/img/shopping-cart.png"></a>
+          <a href="${pageContext.request.contextPath}/history/list?memberId=${sessionScope.loginMemberId}"><img class="order-list-icon" alt="" src="../../../resources/img/orderList.png"></a>
+          <a href="${pageContext.request.contextPath}/member/detail?id=${sessionScope.loginId}"><img class="user-icon" alt="" src="../../../resources/img/user.png"></a>
           <a href="${pageContext.request.contextPath}/member/logout" class="side-menu-text">${sessionScope.loginMemberId} 님 로그아웃</a>
         </div>
       </c:when>
       <c:otherwise>
         <div class="header-side-menu">
-          <a href="${pageContext.request.contextPath}/member/detail?id=${sessionScope.loginId}"><img class="user-icon" alt="" src="../../../resources/img/user.png"></a>
-          <a href="${pageContext.request.contextPath}/cart/list?memberId=${sessionScope.loginMemberId}"><img class="shopping-cart-icon" alt="" src="../../../resources/img/shopping-cart.png"></a>
           <a href="${pageContext.request.contextPath}/member/login" class="side-menu-text">로그인</a>
           <a href="${pageContext.request.contextPath}/member/save" class="side-menu-text">회원가입</a>
         </div>
