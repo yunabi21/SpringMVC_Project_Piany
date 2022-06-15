@@ -44,7 +44,7 @@
             <span class="input-result" id="pw-result"></span>
           </div>
           <div class="input-memberPassword-wrap">
-            <input type="password" name="memberPassword" class="input-memberPassword" id="input-memberPassword" required>
+            <input type="password" onblur="pwCheck()" name="memberPassword" class="input-memberPassword" id="input-memberPassword" required>
           </div>
         </div>
 
@@ -54,7 +54,7 @@
             <span class="input-result" id="pw-again-result"></span>
           </div>
           <div class="input-memberPassword-again-wrap">
-            <input type="password" class="input-memberPassword-again" id="input-memberPassword-again" required>
+            <input type="password" onblur="pwAgainCheck()" class="input-memberPassword-again" id="input-memberPassword-again" required>
           </div>
         </div>
 
@@ -64,7 +64,7 @@
             <span class="input-result" id="name-result"></span>
           </div>
           <div class="input-memberName-wrap">
-            <input type="text" name="memberName" class="input-memberName" id="input-memberName" required>
+            <input type="text" onblur="nameCheck()" name="memberName" class="input-memberName" id="input-memberName" required>
           </div>
         </div>
 
@@ -74,7 +74,7 @@
             <span class="input-result" id="email-result"></span>
           </div>
           <div class="input-memberEmail-wrap">
-            <input type="text" name="memberEmail" class="input-memberEmail" id="input-memberEmail">
+            <input type="text" onblur="emailCheck()" name="memberEmail" class="input-memberEmail" id="input-memberEmail">
           </div>
         </div>
 
@@ -84,7 +84,7 @@
             <span class="input-result" id="mobile-result"></span>
           </div>
           <div class="input-memberMobile-wrap">
-            <input type="text" name="memberMobile" class="input-memberMobile" id="input-memberMobile">
+            <input type="text" onblur="mobileCheck()" name="memberMobile" class="input-memberMobile" id="input-memberMobile">
           </div>
         </div>
 
@@ -112,7 +112,7 @@
         </div>
 
         <div class="btn-submit-form">
-          <input type="button" id="submitBTN" onclick="submit()" value="가입하기">
+          <input type="button" id="submitBTN" onclick="submitButton()" value="가입하기">
         </div>
       </div>
     </div>

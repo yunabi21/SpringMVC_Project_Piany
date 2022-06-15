@@ -39,7 +39,7 @@ function addressAPI() {
   }).open();
 }
 
-const submit = () => {
+const submitButton = () => {
   const inputMemberId = document.getElementById("input-memberId").value;
 
   const inputMemberPassword = document.getElementById("input-memberPassword").value;
@@ -58,7 +58,133 @@ const submit = () => {
     alert('입력하지 않은 정보가 있어요!');
     return false;
   } else {
-    memberSaveForm.submit();
+    if (idCheck() && pwCheck() && pwAgainCheck()
+        && nameCheck() && emailCheck() && mobileCheck()) {
+      memberSaveForm.submit();
+    }
   }
 
 }
+
+const idCheck = () => {
+  const inputMemberId = document.getElementById("input-memberId").value;
+  const resultMemberId = document.getElementById("id-result");
+  const exp = /^[a-z\d-_]{5,15}$/;
+  let check;
+
+  if (inputMemberId.match(exp)) {
+    resultMemberId.style.display = 'none';
+    resultMemberId.setAttribute("aria-hidden", "true");
+    check = true;
+  } else {
+    resultMemberId.innerHTML = '5~15자의 영문 소문자, 숫자와 특수기호 (-), (_)만 사용 가능합니다.';
+    resultMemberId.style.color = '#aa3636';
+    resultMemberId.style.display = 'block';
+    resultMemberId.setAttribute("aria-hidden", "false");
+    check = false;
+  }
+  return check;
+}
+
+const pwCheck = () => {
+  const inputMemberPassword = document.getElementById("input-memberPassword").value;
+  const resultMemberPassword = document.getElementById("pw-result");
+  const exp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,16}$/;
+  let check;
+
+  if (!inputMemberPassword.match(exp)) {
+    resultMemberPassword.innerHTML = '8~16자의 영문 대 소문자, 숫자, 특수문자(!@#$%^&*)를 사용하세요.';
+    resultMemberPassword.style.color = '#aa3636';
+    resultMemberPassword.style.display = 'block';
+    resultMemberPassword.setAttribute("aria-hidden", "false");
+    check = false;
+  } else {
+    resultMemberPassword.style.display = 'none';
+    resultMemberPassword.setAttribute("aria-hidden", "true");
+    check = true;
+  }
+  return check;
+}
+
+const pwAgainCheck = () => {
+  const inputMemberPassword = document.getElementById("input-memberPassword").value;
+  const inputMemberPasswordAgain = document.getElementById("input-memberPassword-again").value;
+  const resultMemberPasswordAgain = document.getElementById("pw-again-result");
+  let check;
+
+  if (inputMemberPassword === inputMemberPasswordAgain) {
+    resultMemberPasswordAgain.innerHTML = '비밀번호가 일치합니다.';
+    resultMemberPasswordAgain.style.color = '#36aa36';
+    resultMemberPasswordAgain.style.display = 'block';
+    resultMemberPasswordAgain.setAttribute("aria-hidden", "false");
+    check = true;
+  } else {
+    resultMemberPasswordAgain.innerHTML = '비밀번호가 일치하지 않습니다.';
+    resultMemberPasswordAgain.style.color = '#aa3636';
+    resultMemberPasswordAgain.style.display = 'block';
+    resultMemberPasswordAgain.setAttribute("aria-hidden", "false");
+    check = false;
+  }
+  return check;
+}
+
+const nameCheck = () => {
+  const inputMemberName = document.getElementById("input-memberName").value;
+  const resultMemberName = document.getElementById("name-result");
+  const exp = /^[a-zA-Z가-힣]{2,20}$/;
+  let check;
+
+  if (!inputMemberName.match(exp)) {
+    resultMemberName.innerHTML = '2~20자 이내의 한글과 영문 대 소문자를 사용하세요.';
+    resultMemberName.style.color = '#aa3636';
+    resultMemberName.style.display = 'block';
+    resultMemberName.setAttribute("aria-hidden", "false");
+    check = false;
+  } else {
+    resultMemberName.style.display = 'none';
+    resultMemberName.setAttribute("aria-hidden", "true");
+    check = true;
+  }
+  return check;
+}
+
+const emailCheck = () => {
+  const inputMemberEmail = document.getElementById("input-memberEmail").value;
+  const resultMemberEmail = document.getElementById("email-result");
+  const exp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i
+  let check;
+
+  if (inputMemberEmail.match(exp)) {
+    resultMemberEmail.style.display = 'none';
+    resultMemberEmail.setAttribute("aria-hidden", "true");
+    check = true;
+  } else {
+    resultMemberEmail.innerHTML = '이메일 주소를 다시 확인해주세요.';
+    resultMemberEmail.style.color = '#aa3636';
+    resultMemberEmail.style.display = 'block';
+    resultMemberEmail.setAttribute("aria-hidden", "false");
+    check = false;
+  }
+  return check;
+}
+
+const mobileCheck = () => {
+  const inputMemberMobile = document.getElementById("input-memberMobile").value;
+  const resultMemberMobile = document.getElementById("mobile-result");
+  const exp = /^01[0179][0-9]{7,8}$/;
+  let check;
+
+  if (!inputMemberMobile.match(exp)) {
+    resultMemberMobile.innerHTML = '전화번호를 다시 확인해주세요.';
+    resultMemberMobile.style.color = '#aa3636';
+    resultMemberMobile.style.display = 'block';
+    resultMemberMobile.setAttribute("aria-hidden", "false");
+    check = false;
+  } else {
+    resultMemberMobile.style.display = 'none';
+    resultMemberMobile.setAttribute("aria-hidden", "true");
+    check = true;
+  }
+  return check;
+}
+
