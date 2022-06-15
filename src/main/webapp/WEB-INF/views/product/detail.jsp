@@ -107,8 +107,17 @@
   const productPay = (id) => {
     const memberId = '${sessionScope.loginMemberId}';
     const productQuantity = document.querySelector('.form-select').value;
+    const productStock = '${product.productStock}';
 
-    location.href = '/product/confirmBeforePay?memberId=' + memberId + '&id=' + id + '&productQuantity=' + productQuantity;
+    if (productStock == 0) {
+      alert('품절이에요!');
+      return false;
+    } else if (productStock < productQuantity) {
+      alert('재고가 구매 하려는 수량보다 적어요 ㅠㅠ');
+      return false;
+    } else {
+      location.href = '/product/confirmBeforePay?memberId=' + memberId + '&id=' + id + '&productQuantity=' + productQuantity;
+    }
   }
 
   const cartSave = () => {
