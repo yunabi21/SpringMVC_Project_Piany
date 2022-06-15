@@ -176,7 +176,7 @@
           output += "<li>" + "|" + "</li>";
           output += "</div>";
 
-          output += "<div id='commentId" + result[i].id + "' class='comment-contents'>";
+          output += "<div id='comment" + result[i].id + "' class='comment-contents'>";
           output += "<li id='commentContents" + result[i].id + "'>" + result[i].commentContents + "</li>";
           output += "</div>";
 
