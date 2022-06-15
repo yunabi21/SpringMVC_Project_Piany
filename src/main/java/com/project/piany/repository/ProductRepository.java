@@ -55,4 +55,9 @@ public class ProductRepository {
     System.out.println("ProductRepository.delete");
     sql.delete("Product.delete", id);
   }
+
+  public List<ProductDTO> search(String query) {
+    System.out.println("ProductRepository.search");
+    return sql.selectList("Product.search", query);
+  }
 }

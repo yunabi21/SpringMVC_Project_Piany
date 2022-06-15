@@ -41,7 +41,9 @@
       <div id="search-icon-wrap" class="search-icon-wrap">
         <img class="search-icon" alt="" src="../../../resources/img/icon_search.png">
       </div>
-      <input type="text" onmouseover="wrapOver()" onmouseleave="wrapLeave()" class="header-search-input" name="query" placeholder=" 검색할 내용을 입력해주세요">
+      <form action="${pageContext.request.contextPath}/product/search" method="get">
+        <input type="text" onmouseover="wrapOver()" onmouseleave="wrapLeave()" class="header-search-input" name="query" placeholder=" 검색할 내용을 입력해주세요">
+      </form>
     </div>
 
     <c:choose>

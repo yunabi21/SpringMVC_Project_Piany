@@ -37,4 +37,8 @@
     <delete id="delete" parameterType="Long">
         DELETE FROM product_table WHERE id = #{id}
     </delete>
+
+    <select id="search" parameterType="String" resultType="product">
+        SELECT * FROM product_table WHERE productName LIKE concat('%', #{query}, '%')
+    </select>
 </mapper>

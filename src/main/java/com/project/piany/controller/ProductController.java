@@ -44,7 +44,7 @@ public class ProductController {
 
     System.out.println("productDTO = " + productDTO);
     productService.save(productDTO);
-    return "/product/list";
+    return "redirect:/product/list";
   }
 
   @GetMapping("/detail")
@@ -107,5 +107,15 @@ public class ProductController {
 
     productService.delete(id);
     return "redirect:/product/list";
+  }
+
+  @GetMapping("/search")
+  public String search(@RequestParam("query") String query, Model model) {
+    System.out.println("ProductController.search");
+
+    List<ProductDTO> productDTOList = productService.search(query);
+    model.addAttribute("productList", productDTOList);
+
+    return "/product/list";
   }
 }

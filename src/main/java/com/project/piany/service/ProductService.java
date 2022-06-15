@@ -89,4 +89,9 @@ public class ProductService {
     System.out.println("ProductService.delete");
     productRepository.delete(id);
   }
+
+  public List<ProductDTO> search(String query) {
+    System.out.println("ProductService.search");
+    return productRepository.search(query);
+  }
 }
