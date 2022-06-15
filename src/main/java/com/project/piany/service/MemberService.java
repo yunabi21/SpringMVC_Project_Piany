@@ -5,6 +5,8 @@ import com.project.piany.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class MemberService {
 
@@ -90,5 +92,11 @@ public class MemberService {
   public MemberDTO findByMemberId(String memberId) {
     System.out.println("MemberService.findByMemberId");
     return memberRepository.findByMemberId(memberId);
+  }
+
+  public List<MemberDTO> list() {
+    System.out.println("MemberService.list");
+
+    return memberRepository.list();
   }
 }

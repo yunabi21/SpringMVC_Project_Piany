@@ -27,6 +27,7 @@
           <a class="piany-piano-shop" href="${pageContext.request.contextPath}/product/list">상품목록</a>
           <a class="piany-community-board" href="${pageContext.request.contextPath}/board/list">커뮤니티</a>
           <a class="piany-product-save" href="/product/save">상품등록</a>
+          <a class="piany-member-list" href="${pageContext.request.contextPath}/member/list">회원목록</a>
         </div>
       </c:when>
       <c:otherwise>

@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 @RequestMapping("/member")
@@ -170,5 +171,22 @@ public class MemberController {
   public @ResponseBody MemberDTO findByMemberId(@RequestParam("memberId") String memberId) {
     System.out.println("MemberController.findByMemberId");
     return memberService.findByMemberId(memberId);
+  }
+
+  @GetMapping("/list")
+  public String list(Model model) {
+    System.out.println("MemberController.list");
+    List<MemberDTO> memberDTOList = memberService.list();
+
+    model.addAttribute("memberList", memberDTOList);
+    return "/member/list";
+  }
+
+  @GetMapping("/deleteByAdmin")
+  public String deleteByAdmin(@RequestParam("id") Long id) {
+    System.out.println("MemberController.delete");
+
+    memberService.delete(id);
+    return "redirect:/member/list";
   }
 }

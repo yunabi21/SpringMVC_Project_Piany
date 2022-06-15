@@ -47,5 +47,9 @@
     <select id="findByMemberId" parameterType="String" resultType="member">
         SELECT * FROM member_table WHERE memberId = #{memberId}
     </select>
+
+    <select id="list" resultType="member">
+        SELECT * FROM member_table
+    </select>
 </mapper>
 
