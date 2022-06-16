@@ -15,7 +15,7 @@ public class CommentController {
   @Autowired
   private CommentService commentService;
 
-  @PostMapping("/save")
+  @PostMapping("/save") // 댓글 저장 처리
   public @ResponseBody List<CommentDTO> save(@ModelAttribute CommentDTO commentDTO) {
     System.out.println("CommentController.save");
 
@@ -23,7 +23,7 @@ public class CommentController {
     return commentService.findAll(commentDTO.getBoardId());
   }
 
-  @GetMapping("/delete")
+  @GetMapping("/delete")  // 댓글 삭제 처리
   public @ResponseBody List<CommentDTO> delete(@RequestParam("id") Long id,
                                                @RequestParam("boardId") Long boardId) {
     System.out.println("CommentController.delete");
@@ -32,9 +32,8 @@ public class CommentController {
     return commentService.findAll(boardId);
   }
 
-  @PostMapping("/update")
-  public void update(@RequestParam("id") Long id,
-                     @ModelAttribute CommentDTO commentDTO) {
+  @PostMapping("/update") // 댓글 수정 처리
+  public void update(@ModelAttribute CommentDTO commentDTO) {
     System.out.println("CommentController.update");
 
     commentService.update(commentDTO);

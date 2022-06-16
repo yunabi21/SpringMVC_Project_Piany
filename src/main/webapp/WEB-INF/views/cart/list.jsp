@@ -33,7 +33,6 @@
       <table class="cart-list-table">
         <thead>
         <tr class="theader">
-          <th class="choice">선택</th>
           <th class="image">사진</th>
           <th class="productName">상품명</th>
           <th class="productPrice">가격</th>
@@ -45,7 +44,6 @@
         <tbody>
         <c:forEach var="product" items="${productList}">
           <tr>
-            <td><input type="checkbox"></td>
             <td><img class="product-img" src="/upload/product/${product.productImageName}"></td>
             <td><a href="javascript:void(0)" onclick="productDetail(${product.id})"><span class="product-name">${product.productName}</span></a></td>
             <td><span>₩ </span><span id="productPrice" class="product-price">${product.productPrice}</span></td>
@@ -70,14 +68,14 @@
 <%--          <span id="priceToPay" class="price-to-pay"></span>--%>
 <%--        </div>--%>
 <%--      </div>--%>
-      <div class="button-container">
-        <div class="pay-button-wrap">
-          <input type="button" class="btn btn-dark pay-button" value="결제하기">
-        </div>
-        <div class="cancel-button-wrap">
-          <input type="button" class="btn btn-outline-dark cancel-button" value="삭제하기">
-        </div>
-      </div>
+<%--      <div class="button-container">--%>
+<%--        <div class="pay-button-wrap">--%>
+<%--          <input type="button" class="btn btn-dark pay-button" value="결제하기">--%>
+<%--        </div>--%>
+<%--        <div class="cancel-button-wrap">--%>
+<%--          <input type="button" class="btn btn-outline-dark cancel-button" value="삭제하기">--%>
+<%--        </div>--%>
+<%--      </div>--%>
     </div>
   </div>
 </main>

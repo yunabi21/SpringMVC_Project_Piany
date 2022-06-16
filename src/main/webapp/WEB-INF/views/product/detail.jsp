@@ -69,6 +69,11 @@
           <option value="3">3</option>
           <option value="4">4</option>
           <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
         </select>
       </div>
       <div class="purchase-wrap col-12 col-lg">
@@ -77,7 +82,6 @@
         </button>
       </div>
       <div class="cart-button-wrap col-12 col-lg-auto">
-<%--        <input type="button" onclick="cartSave()" class="btn btn-outline-dark w-100 mb-2" value="장바구니에 담기">--%>
         <button onclick="cartSave()" class="btn btn-outline-dark w-100 mb-2" data-toggle="button">장바구니에 담기
           <i class="fa fa-heart ms-2"></i>
         </button>
@@ -113,13 +117,14 @@
     const memberId = '${sessionScope.loginMemberId}';
     const productQuantity = document.querySelector('.form-select').value;
     const productStock = '${product.productStock}';
-
+    const productQuantityToBuy = productStock - productQuantity;
+    console.log("수량 " + productQuantity);
+    console.log("재고 " + productStock);
+    console.log("재고-수량" + productQuantityToBuy);
     if (productStock == 0) {
       alert('품절이에요!');
-      return false;
-    } else if (productStock < productQuantity) {
+    } else if (productQuantityToBuy < 0) {
       alert('재고가 구매 하려는 수량보다 적어요 ㅠㅠ');
-      return false;
     } else {
       location.href = '/product/confirmBeforePay?memberId=' + memberId + '&id=' + id + '&productQuantity=' + productQuantity;
     }

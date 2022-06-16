@@ -16,13 +16,13 @@ public class HistoryController {
   @Autowired
   private HistoryService historyService;
 
-  @PostMapping("/save")
+  @PostMapping("/save") // 구매 내역 저장 처리
   public @ResponseBody String save(@ModelAttribute HistoryDTO historyDTO) {
     System.out.println("HistoryController.save");
     return historyService.save(historyDTO);
   }
 
-  @GetMapping("/list")
+  @GetMapping("/list")  // 구매 내역 리스트
   public String list(@RequestParam("memberId") String memberId, Model model) {
     System.out.println("HistoryController.list");
 

@@ -22,7 +22,7 @@ public class BoardController {
   @Autowired
   private CommentService commentService;
 
-  @GetMapping("/list")
+  @GetMapping("/list")  // 글 목록
   public String list(@RequestParam(value = "page", defaultValue = "1", required = false) int page,
                      Model model) {
     System.out.println("BoardController.list");
@@ -35,7 +35,7 @@ public class BoardController {
     return "/board/list";
   }
 
-  @GetMapping("/detail")
+  @GetMapping("/detail")  // 글 상세정보
   public String detail(@RequestParam("id") Long id,
                        @RequestParam(value = "page", required = false, defaultValue = "1") int page,
                        Model model) {
@@ -50,13 +50,13 @@ public class BoardController {
     return "/board/detail";
   }
 
-  @GetMapping("/save")
+  @GetMapping("/save")  // 글 저장 화면 이동
   public String save() {
     System.out.println("BoardController.save");
     return "/board/save";
   }
 
-  @PostMapping("/save")
+  @PostMapping("/save") // 글 저장 처리
   public String save(@ModelAttribute BoardDTO boardDTO) {
     System.out.println("BoardController.save");
 
@@ -64,7 +64,7 @@ public class BoardController {
     return "redirect:/board/list";
   }
 
-  @GetMapping("/delete")
+  @GetMapping("/delete")  // 글 삭제
   public String delete(@RequestParam("id") Long id) {
     System.out.println("BoardController.delete");
 
@@ -72,7 +72,7 @@ public class BoardController {
     return "redirect:/board/list";
   }
 
-  @GetMapping("/update")
+  @GetMapping("/update")  // 글 수정 화면 이동
   public String update(@RequestParam("id") Long id, Model model) {
     System.out.println("BoardController.update");
 
@@ -81,7 +81,7 @@ public class BoardController {
     return "/board/update";
   }
 
-  @PostMapping("/update")
+  @PostMapping("/update") // 글 수정 처리
   public String update(@ModelAttribute BoardDTO boardDTO,
                        @RequestParam(value = "page", required = false, defaultValue = "1") int page) {
     System.out.println("BoardController.update");

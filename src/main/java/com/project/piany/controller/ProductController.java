@@ -23,7 +23,7 @@ public class ProductController {
   @Autowired
   private MemberService memberService;
 
-  @GetMapping("/list")
+  @GetMapping("/list")  // 상품 리스트 화면 요청
   public String list(Model model) {
     System.out.println("ProductController.list");
 
@@ -32,13 +32,14 @@ public class ProductController {
     return "/product/list";
   }
 
-  @GetMapping("/save")
+  @GetMapping("/save")  // 상품 등록 화면 요청
   public String save() {
     System.out.println("ProductController.save");
+
     return "/product/save";
   }
 
-  @PostMapping("/save")
+  @PostMapping("/save") // 상품 등록 처리
   public String save(@ModelAttribute ProductDTO productDTO) throws IOException {
     System.out.println("ProductController.save");
 
@@ -47,7 +48,7 @@ public class ProductController {
     return "redirect:/product/list";
   }
 
-  @GetMapping("/detail")
+  @GetMapping("/detail")  // 상품 상세정보 화면 요청
   public String detail(@RequestParam("id") Long id,
                        Model model) {
     System.out.println("ProductController.detail");
@@ -61,7 +62,7 @@ public class ProductController {
     return "/product/detail";
   }
 
-  @GetMapping("/saveImg")
+  @GetMapping("/saveImg") // 상품 상세 이미지 저장 화면 요청
   public String saveImg(@RequestParam("id") Long productId, Model model) {
     System.out.println("ProductController.saveImg");
 
@@ -69,7 +70,7 @@ public class ProductController {
     return "/product/saveImg";
   }
 
-  @PostMapping("/saveImg")
+  @PostMapping("/saveImg")  // 상품 상세 이미지 저장 처리
   public String saveImg(@ModelAttribute ImageDTO imageDTO) throws IOException {
     System.out.println("ProductController.saveImg");
 
@@ -77,7 +78,7 @@ public class ProductController {
     return "redirect:/product/detail?id=" + imageDTO.getProductId();
   }
 
-  @GetMapping("/confirmBeforePay")
+  @GetMapping("/confirmBeforePay")  // 결제 전 확인 페이지 요청
   public String confirmBeforePay(@RequestParam("id") Long id,
                                  @RequestParam("memberId") String memberId,
                                  @RequestParam("productQuantity") int productQuantity,
@@ -93,7 +94,7 @@ public class ProductController {
     return "/product/confirmBeforePay";
   }
 
-  @PostMapping("/updateQuantity")
+  @PostMapping("/updateQuantity") // 결제 후 재고 업데이트 처리
   public @ResponseBody String updateQuantity(@RequestParam("productId") Long productId,
                                              @RequestParam("productQuantity") Integer productQuantity) {
     System.out.println("ProductController.updateQuantity");
@@ -101,7 +102,7 @@ public class ProductController {
     return productService.updateQuantity(productId, productQuantity);
   }
 
-  @GetMapping("/delete")
+  @GetMapping("/delete")  // 상품 삭제
   public String delete(@RequestParam("id") Long id) {
     System.out.println("ProductController.delete");
 
@@ -109,7 +110,7 @@ public class ProductController {
     return "redirect:/product/list";
   }
 
-  @GetMapping("/search")
+  @GetMapping("/search")  // 상품 검색
   public String search(@RequestParam("query") String query, Model model) {
     System.out.println("ProductController.search");
 

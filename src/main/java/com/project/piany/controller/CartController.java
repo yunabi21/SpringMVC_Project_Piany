@@ -22,14 +22,14 @@ public class CartController {
   @Autowired
   private ProductService productService;
 
-  @GetMapping("/save")
+  @GetMapping("/save")  // 장바구니에 상품 저장
   public @ResponseBody String save(@ModelAttribute CartDTO cartDTO) {
     System.out.println("CartController.save");
 
     return cartService.save(cartDTO);
   }
 
-  @GetMapping("/list")
+  @GetMapping("/list")  // 장바구니의 상품 목록
   public String list(@RequestParam("memberId") String memberId, Model model) {
     System.out.println("CartController.list");
 
@@ -44,9 +44,10 @@ public class CartController {
     return "/cart/list";
   }
 
-  @GetMapping("/delete")
+  @GetMapping("/delete")  // 상품 삭제
   public @ResponseBody String delete(@ModelAttribute CartDTO cartDTO) {
     System.out.println("CartController.delete");
+
     return cartService.delete(cartDTO);
   }
 }
