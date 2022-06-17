@@ -28,7 +28,6 @@
 >>> 1.5.1 회원의 비밀번호를 입력받아서 일치하면 탈퇴 처리
 >> #### 1.6 로그아웃
 >>> 1.6.1 세션에 있는 정보를 삭제
->> #### 1.7 장바구니
 
 > #### **2. 상품**
 >> #### 2.1 상품 등록
@@ -61,4 +60,4 @@
 >> #### 5.3 장바구니의 상품 삭제
 
 ## 기타
-> #### HTML, CSS, JavaScript, Ajax, Spring Framework
+> #### HTML, CSS, Bootstrap, JavaScript, Ajax, Spring Framework
