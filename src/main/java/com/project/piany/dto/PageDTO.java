@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PageDTO {
-  private int page;
-  private int startPage;
-  private int endPage;
-  private int maxPage;
+  private int page; // 현재 페이지
+  private int startPage;  // 시작 페이지
+  private int endPage;  // 끝 페이지
+  private int maxPage;  // 최대 페이지
 }

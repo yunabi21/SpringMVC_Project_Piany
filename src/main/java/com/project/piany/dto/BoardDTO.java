@@ -12,12 +12,10 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BoardDTO {
-  private Long id;
-  private String boardWriter;
-  private String boardTitle;
-  private String boardContents;
-  private Timestamp boardCreatedDate;
-  private Integer boardHits;
-  private String boardFileName;
-  private List<MultipartFile> boardFile;
+  private Long id;  // 글 번호
+  private String boardWriter; // 글 작성자
+  private String boardTitle;  // 글 제목
+  private String boardContents; // 글 내용
+  private Timestamp boardCreatedDate; // 글 작성일자
+  private Integer boardHits;  // 조회수
 }

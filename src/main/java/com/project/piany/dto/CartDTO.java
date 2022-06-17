@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CartDTO {
-  private Long id;
-  private String memberId;
-  private Long productId;
-  private Integer productQuantity;
+  private Long id;  // 장바구니 번호
+  private String memberId;  // 회원 아이디
+  private Long productId; // 상품 아이디
+  private Integer productQuantity;  // 상품 수량
 }

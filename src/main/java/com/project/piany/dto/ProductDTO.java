@@ -9,11 +9,11 @@ import org.springframework.web.multipart.MultipartFile;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductDTO {
-  private Long id;
-  private String productName;
-  private String productContents;
-  private Integer productPrice;
-  private Integer productStock;
-  private MultipartFile productImage;
-  private String productImageName;
+  private Long id;  // 상품 번호
+  private String productName; // 상품 이름
+  private String productContents; // 상품 설명
+  private Integer productPrice; // 상품가격
+  private Integer productStock; // 상품 재고
+  private MultipartFile productImage; // 상품 이미지 파일
+  private String productImageName;  // 상품 이미지 파일 이름
 }
